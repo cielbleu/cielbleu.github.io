@@ -13,6 +13,6 @@ main:
   - title: "Archive"
     url: /year-archive/
   - title: "Category"
-    url: /categories/
+    url: /categories/list/
   - title: "tag"
     url: /tags/
