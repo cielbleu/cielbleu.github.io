@@ -1,6 +1,7 @@
 ---
 title: "Github Blog 테스트용 문서"
 description: "Github Blog 구축 과정에서 만든 테스트용 문서입니다"
+category: Test
 tags: [test, md, markdown]
 ---
 
