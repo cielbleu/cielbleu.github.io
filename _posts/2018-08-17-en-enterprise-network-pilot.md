@@ -1,7 +1,7 @@
 ---
 title: "Enterprise Network 카테고리"
 description: "Enterprise Netowk 카테고리용 Pilot 문서"
-catogory: Enterprise_Network
+category: Enterprise_Network
 tags: [Network, Pilot]
 ---
 
