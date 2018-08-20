@@ -5,7 +5,7 @@ category: Linux
 tags: [Linux, Docker, Plex, 도커]
 ---
 
-**Archlinux**(https://archlinux.org)에서 Docker(https://www.docker.com/)를 사용하여 Plex Media Server(https://www.plex.tv/)를 설치하는 방법에 대한 정리입니다.  
+[**Archlinux**](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [Plex Media Server](https://www.plex.tv/)를 설치하는 방법에 대한 정리입니다.  
 <center>![Plex Logo](/assets/images/plex.jpeg) <img width="576" height="324"></img></center>
 
 
@@ -36,13 +36,13 @@ $ sudo apt install docker docker-compose
 ```
 
 
-조금 더 편하게 Docker를 사용하기 위해 현재 로그인한 사용자를 docker 그룹에 넣어줍니다.
+조금 더 편하게 Docker를 사용하기 위해 현재 로그인한 사용자를 docker 그룹에 넣어줍니다.  
 ```bash
 $ sudo usermod -aG docker $USER
 ```
 
 
-재부팅시 자동으로 실행되도록 서비스를 등록합니다.
+재부팅시 자동으로 실행되도록 서비스를 등록합니다.  
 - ArchLinux
 ```bash
 $ sudo systemctl enable docker.service //서비스 활성화
@@ -77,7 +77,7 @@ $ vim docker-compose.yml
 ```
 
 - docker-compose.yml 설정
-```
+```python
 version: '2'
 
 services:
