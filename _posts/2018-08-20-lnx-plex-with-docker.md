@@ -6,7 +6,7 @@ tags: [Linux, Docker, Plex, 도커]
 ---
 
 [**Archlinux**](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [Plex Media Server](https://www.plex.tv/)를 설치하는 방법에 대한 정리입니다.  
-<center>![Plex Logo](/assets/images/plex.jpeg) <img width="576" height="324"></img></center>
+![Plex Logo](/assets/images/plex.jpeg)
 
 
 
@@ -76,12 +76,9 @@ Docker-Compose 파일을 다음과 같이 생성합니다.
 $ vim docker-compose.yml
 ```
 
-- docker-compose.yml 설정
-```python
+```
 version: '2'
-
 services:
-
   plex:
     container_name: plex
     image: plexinc/pms-docker
@@ -108,6 +105,7 @@ services:
      - ADVERTISE_IP=http://외부에 공개할 IP 주소 또는 URL:32400/
     hostname: 사용할 Plex Media Server 이름
 ```
+
 **volumes:** 하위의 항목은 Plex Media Server 컨테이너에서 연결할 Host PC의 폴더를 설정합니다.  
 `/storage/public:/data`는 컨텐츠가 저장되어 있는 Host PC의 폴더를 Plex Media Server 컨테이너와 연결해 주는 설정입니다.  
 Host PC의 `/storage/public` 폴더를 Plex Media Server 컨테이너의 `/data` 폴더에 연결해 준다는 의미입니다.  
@@ -125,10 +123,11 @@ PLEX_CLAIM 코드는 (https://plex.tv/claim)에 접속하여 받을 수 있습�
 ADVIRTISE_IP는 외부에서 Plex Media Server에 접속하기 위해 IP 또는 URL을 설정하는 항목입니다.  
 ADVERTISE_IP를 설정하지 않으면 Plex Media Server가 실행되는 동일 네트워크에서만 접속할 수 있습니다.  
 
-docker-compose.yml 파일을 만들었으면 다음과 같은 명령어로 컨테이너를 실행합니다.
+docker-compose.yml 파일을 만들었으면 다음과 같은 명령어로 컨테이너를 실행합니다.  
 ```bash
 $ cd ~/docker
 $ docker-compose up -d plex
 ```
+
 docker-compose.yml에서 plex라는 이름을 가진 컨테이너를 데몬(-d)으로 실행(up)하라는 의미입니다.  
 `-d` 옵션을 주지 않으면 터미널 창을 닫을 때 컨테이너가 같이 종료됩니다.  
