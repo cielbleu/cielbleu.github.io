@@ -52,6 +52,9 @@ Docker로 컨테이너를 실행하는 간단한 방법은 터미널에서 docke
 하지만 이 방법은 매번 명령어를 입력해야 합니다.  
 설정이 복잡하지 않을 때에는 그다지 문제가 되지 않지만, 설정이 복잡해질 경우에는 명령어가 굉장히 복잡해집니다.  
 본 문서에서는 YAML 방식의 설정파일을 이용하는 Docker-Compose를 사용하여 컨테이너를 실행하고자 합니다.  
+
+### 설정  
+
 우선 홈디렉토리에 폴더(docker)를 만들고 Plex Media Server의 설정을 저장할 폴더를 아래와 같이 만듭니다.
 ```bash
 $ mkdir docker
@@ -68,7 +71,7 @@ Docker-Compose 파일을 다음과 같이 생성합니다.
 $ vim docker-compose.yml
 ```
 
-```
+```yml
 version: '2'
 services:
   plex:
@@ -98,8 +101,8 @@ services:
     hostname: 사용할 Plex Media Server 이름
 ```
 
-### volumes:  
-**volumes:** 하위의 항목에서는 Plex Media Server 컨테이너에서 연결할 Host PC의 폴더를 설정합니다.  
+**volumes:**   
+하위의 항목에서는 Plex Media Server 컨테이너에서 연결할 Host PC의 폴더를 설정합니다.  
 `/storage/public:/data`는 컨텐츠가 저장되어 있는 Host PC의 폴더를 Plex Media Server 컨테이너와 연결해 주는 설정입니다.  
 Host PC의 `/storage/public` 폴더를 Plex Media Server 컨테이너의 `/data` 폴더에 연결해 준다는 의미입니다.  
 `/storage/public`을 자신의 환경에 맞게 변경하세요.  
@@ -109,11 +112,11 @@ Host PC의 `/storage/public` 폴더를 Plex Media Server 컨테이너의 `/data`
 Plex Media Server의 설정을 계속 유지하기 위해 컨테이너가 아닌 Host PC의 특정 폴더에 설정을 저장하는 것을 추천합니다.  
 `/home/계정/docker/plex/config`를 자신의 환경에 맞게 변경하세요.  
 
-### environment:  
-**environment:** 하위의 항목에서는 환경변수를 설정합니다.  
+**environment:**  
+하위의 항목에서는 환경변수를 설정합니다.  
 environment에서 중요한 항목은 `PLEX_CLAIM`과 `ADVERTISE_IP`입니다.  
-PLEX_CLAIM 코드는 (https://plex.tv/claim)에 접속하여 받을 수 있습니다.  
-*시간제한이 있으므로 유의하세요*  
+PLEX_CLAIM 코드는 [https://plex.tv/claim](https://plex.tv/claim){: .notice--warning}에 접속하여 받을 수 있습니다.  
+> *시간제한이 있으므로 유의하세요*  
 
 ADVERTISE_IP는 외부에서 Plex Media Server에 접속할 수 있도록 IP 또는 URL을 설정하는 항목입니다.  
 ADVERTISE_IP를 설정하지 않으면 Plex Media Server가 실행되는 동일 네트워크에서만 접속할 수 있습니다.  
@@ -123,6 +126,8 @@ docker-compose.yml 파일을 만들었으면 다음과 같은 명령어로 컨�
 $ cd ~/docker
 $ docker-compose up -d plex
 ```
+
+### 실행  
 
 docker-compose.yml에서 plex라는 이름을 가진 컨테이너를 데몬(-d)으로 실행(up)하라는 의미입니다.  
 `-d` 옵션을 주지 않으면 터미널 창을 닫을 때 컨테이너가 같이 종료됩니다.  
