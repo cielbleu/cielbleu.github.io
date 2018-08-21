@@ -50,7 +50,7 @@ $ docker version //Docker 클라이언트 및 서버 정보 확인
 Docker로 컨테이너를 실행하는 간단한 방법은 터미널에서 docker run 명령어를 사용하는 것입니다.  
 설정이 복잡하지 않을 때에는 docker run 명령어로 실행하는 것이 그다지 문제가 되지 않지만,  
 설정이 복잡해질 경우에는 명령어가 굉장히 복잡해지기 때문에 현실적으로 사용하기가 어렵습니다.  
-문제 해결을 위해 본 문서에서는 YAML 방식의 설정파일을 이용하는 Docker-Compose를 사용하여 컨테이너를 실행할 것입니다.  
+조금 더 편리한 사용을 위해 본 문서에서는 YAML 방식의 설정파일을 이용하는 Docker-Compose를 사용하여 컨테이너를 실행할 것입니다.  
 
 ### 설정  
 
@@ -102,19 +102,17 @@ services:
 
 **volumes:**   
 docker 컨테이너(Plex Media Server)와 Host PC의 폴더 연결을 위한 항목입니다.  
-`/storage/public:/data`는 컨텐츠가 저장되어 있는 Host PC의 `/storage/public` 폴더를  
-Plex Media Server 컨테이너의 `/data` 폴더에 연결한다는 의미입니다.  
+`/storage/public:/data`는 컨텐츠가 저장되어 있는 Host PC의 `/storage/public` 폴더를 Plex Media Server 컨테이너의 `/data` 폴더에 연결한다는 의미입니다.  
 
-이 설정을 사용해 Host PC에 저장되어 있는 컨텐츠를 docker 컨테이너(Plex Media Servder)를 통해 서비스 할 수 있습니다.  
+이 설정을 사용해 Host PC의 컨텐츠를 docker 컨테이너(Plex Media Servder)를 통해 서비스 할 수 있습니다.  
 `/storage/public`을 자신의 환경에 맞게 변경하세요.  
 
-`/home/계정/docker/plex/config:/config`는 Host PC의 `/home/계정/docker/plex/config` 폴더를  
-Plex Media Server의 설정이 저장되는 `/config` 폴더에 연결한다는 의미입니다.  
+`/home/계정/docker/plex/config:/config`는 Host PC의 `/home/계정/docker/plex/config` 폴더를 Plex Media Server의 설정이 저장되는 `/config` 폴더에 연결한다는 의미입니다.  
 
 이 설정을 사용해 docker 컨테이너(Plex Media Server)의 설정을 Host PC에 영구적으로 저장할 수 있습니다.  
 설정을 하지 않아도 무방하나 이런 경우 컨테이너를 삭제하면 설정이 초기화됩니다.  
 
-Plex Media Server의 설정을 계속 유지하기 위해 컨테이너 내부가 아닌 Host PC의 특정 폴더에 설정을 저장하는 것을 추천합니다.  
+Plex Media Server의 설정을 계속 유지하기 위해 컨테이너 내부가 아닌 Host PC에 설정을 저장하는 것이 좋습니다.    
 `/home/계정/docker/plex/config`를 자신의 환경에 맞게 변경하세요.  
 
 **environment:**  
