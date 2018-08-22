@@ -1,8 +1,10 @@
 ---
-title: "Docker로 Plex Midia Server 설치하기"
+title: "Docker로 Plex Media Server 설치하기"
 description: "Docker를 사용하여 Plex Media Server를 설치하는 방법 정리"
 category: Linux
-tags: [Linux, Docker, Plex, 도커]
+tags: [Linux, Docker, Plex]
+toc: true
+toc_sticky: true
 ---
 
 [**Archlinux**](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [Plex Media Server](https://www.plex.tv/)를 설치하는 방법에 대한 정리입니다.  
@@ -15,7 +17,7 @@ tags: [Linux, Docker, Plex, 도커]
 Docker에 대해서 알고 계신가요?  
 필자는 Docker라는 단어를 꽤 오래전에 듣긴 했지만 관심을 가진 것은 최근입니다.  
 아직 Docker에 대해서 잘 모르신다면 먼저 검색을 통해 Docker가 어떤 물건인지 알아보시길 권장하고 싶습니다.  
-본 문서에서는 Docker를 사용하여 Plex Media Server를 설치하는 방법에 대해서 간략히 정리해 보았습니다.  
+이 포스트에서는 Docker를 사용하여 Plex Media Server를 설치하는 방법에 대해서 간략히 정리해 보았습니다.  
 
 
 
@@ -56,10 +58,12 @@ $ docker version //Docker 클라이언트 및 서버 정보 확인
 # 2. Docker로 Plex Media Server 실행하기  
 
 Docker로 컨테이너를 실행하는 간단한 방법은 터미널에서 docker run 명령어를 사용하는 것입니다.  
-하지만 이 방법은 매번 명령어를 입력해야 합니다.  
-설정이 복잡하지 않을 때에는 그다지 문제가 되지 않지만, 설정이 복잡해질 경우에는 명령어가 굉장히 복잡해집니다.  
-필자는 YAML 방식의 설정파일을 이용하는 Docker-Compose를 사용하여 컨테이너를 실행하겠습니다.  
-우선 홈디렉토리에 폴더(docker)를 만들고 Plex Media Server의 설정을 저장할 폴더를 아래와 같이 만들었습니다.  
+설정이 복잡하지 않을 때에는 docker run 명령어로 실행하는 것이 그다지 문제가 되지 않지만, 설정이 복잡해질 경우에는 명령어가 굉장히 복잡해지기 때문에 현실적으로 사용하기가 어렵습니다.  
+조금 더 편리한 사용을 위해 YAML 방식의 설정파일을 이용하는 docker-compose를 사용하여 컨테이너를 실행할 것입니다.  
+
+### 설정  
+
+우선 홈디렉토리에 docker 폴더 및 Plex Media Server의 설정을 저장할 폴더를 아래와 같이 생성합니다.  
 ```bash
 $ mkdir docker
 $ cd docker
@@ -70,7 +74,7 @@ $ cd ..
 ```
 
 
-Docker-Compose 파일을 다음과 같이 생성합니다.  
+cocker-compose.yml 파일을 다음과 같이 생성합니다.  
 자신의 환경에 맞게 적당히 수정하세요.  
 ```bash
 $ vim docker-compose.yml
@@ -120,8 +124,8 @@ Plex Media Server의 설정을 계속 유지하기 위해 컨테이너가 아닌
 environment에서 중요한 항목은 `PLEX_CLAIM`과 `ADVIRTISE_IP`입니다.  
 PLEX_CLAIM 코드는 (https://plex.tv/claim)에 접속하여 받을 수 있습니다.  
 *시간제한이 있으므로 유의하세요*
-ADVIRTISE_IP는 외부에서 Plex Media Server에 접속하기 위해 IP 또는 URL을 설정하는 항목입니다.  
-ADVERTISE_IP를 설정하지 않으면 Plex Media Server가 실행되는 동일 네트워크에서만 접속할 수 있습니다.  
+`ADVIRTISE_IP`는 외부에서 Plex Media Server에 접속하기 위해 IP 또는 URL을 설정하는 항목입니다.  
+`ADVERTISE_IP`를 설정하지 않으면 Plex Media Server가 실행되는 동일 네트워크에서만 접속할 수 있습니다.  
 
 docker-compose.yml 파일을 만들었으면 다음과 같은 명령어로 컨테이너를 실행합니다.  
 ```bash
@@ -129,5 +133,5 @@ $ cd ~/docker
 $ docker-compose up -d plex
 ```
 
-docker-compose.yml에서 plex라는 이름을 가진 컨테이너를 데몬(-d)으로 실행(up)하라는 의미입니다.  
+docker-compose.yml에서 plex라는 이름을 가진 컨테이너를 백그라운드(-d)로 실행(up)하라는 의미입니다.  
 `-d` 옵션을 주지 않으면 터미널 창을 닫을 때 컨테이너가 같이 종료됩니다.  
