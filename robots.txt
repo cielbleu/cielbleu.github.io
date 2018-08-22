@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /_draft/
+Disallow: /_drafts/
 Sitemap: https://cielbleu.github.io/sitemap.xml
