@@ -110,24 +110,32 @@ services:
     hostname: 사용할 Plex Media Server 이름
 ```
 
-**volumes:** 하위의 항목은 Plex Media Server 컨테이너에서 연결할 Host PC의 폴더를 설정합니다.  
-`/storage/public:/data`는 컨텐츠가 저장되어 있는 Host PC의 폴더를 Plex Media Server 컨테이너와 연결해 주는 설정입니다.  
-Host PC의 `/storage/public` 폴더를 Plex Media Server 컨테이너의 `/data` 폴더에 연결해 준다는 의미입니다.  
+**volumes:**   
+docker 컨테이너(Plex Media Server)와 Host PC의 폴더 연결을 위한 항목입니다.  
+
+`/storage/public:/data`는 컨텐츠가 저장되어 있는 Host PC의 `/storage/public` 폴더를 Plex Media Server 컨테이너의 `/data` 폴더에 연결한다는 의미입니다.  
+이 설정을 사용해 Host PC의 컨텐츠를 docker 컨테이너(Plex Media Servder)를 통해 서비스 할 수 있습니다.  
 `/storage/public`을 자신의 환경에 맞게 변경하세요.  
 
-`/home/계정/docker/plex/config:/config`는 Plex Media Server의 설정이 저장되는 폴더를 Host PC의 폴더에 연결해 주는 설정입니다.  
+`/home/계정/docker/plex/config:/config`는 Host PC의 `/home/계정/docker/plex/config` 폴더를 Plex Media Server의 설정이 저장되는 `/config` 폴더에 연결한다는 의미입니다.  
+이 설정을 사용해 docker 컨테이너(Plex Media Server)의 설정을 Host PC에 영구적으로 저장할 수 있습니다.  
 설정을 하지 않아도 무방하나 이런 경우 컨테이너를 삭제하면 설정이 초기화됩니다.  
-Plex Media Server의 설정을 계속 유지하기 위해 컨테이너가 아닌 Host PC의 특정 폴더에 설정을 저장하는 것을 추천합니다.  
+Plex Media Server의 설정을 계속 유지하기 위해 컨테이너 내부가 아닌 Host PC에 설정을 저장하는 것이 좋습니다.    
 `/home/계정/docker/plex/config`를 자신의 환경에 맞게 변경하세요.  
 
-**environment:** 하위의 항목에서는 환경변수를 설정합니다.  
-environment에서 중요한 항목은 `PLEX_CLAIM`과 `ADVIRTISE_IP`입니다.  
-PLEX_CLAIM 코드는 (https://plex.tv/claim)에 접속하여 받을 수 있습니다.  
-*시간제한이 있으므로 유의하세요*
-`ADVIRTISE_IP`는 외부에서 Plex Media Server에 접속하기 위해 IP 또는 URL을 설정하는 항목입니다.  
+**environment:**  
+docker 컨테이너(Plex Media Server)의 환경변수를 설정하기 위한 항목입니다.  
+
+environment에서 중요한 항목은 `PLEX_CLAIM`과 `ADVERTISE_IP`입니다.  
+`PLEX_CLAIM` 코드는 [https://plex.tv/claim](https://plex.tv/claim)에 접속하여 받을 수 있습니다.  
+> *시간제한이 있으므로 유의하세요*  
+
+`ADVERTISE_IP`는 외부에서 Plex Media Server에 접속할 수 있도록 IP 또는 URL을 설정하는 항목입니다.  
 `ADVERTISE_IP`를 설정하지 않으면 Plex Media Server가 실행되는 동일 네트워크에서만 접속할 수 있습니다.  
 
-docker-compose.yml 파일을 만들었으면 다음과 같은 명령어로 컨테이너를 실행합니다.  
+### 실행  
+
+docker-compose.yml 파일을 생성한 후 다음과 같은 명령어로 컨테이너를 실행합니다.  
 ```bash
 $ cd ~/docker
 $ docker-compose up -d plex
