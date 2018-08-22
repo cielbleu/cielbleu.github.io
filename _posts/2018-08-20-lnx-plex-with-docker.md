@@ -7,7 +7,7 @@ toc: true
 toc_sticky: true
 ---
 
-[**Archlinux**](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [Plex Media Server](https://www.plex.tv/)를 설치하는 방법에 대한 정리입니다.  
+[Archlinux](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [Plex Media Server](https://www.plex.tv/)를 설치하는 방법에 대한 정리입니다.  
 ![Plex Logo](/assets/images/plex-logo.png){: .full}
 
 
@@ -63,20 +63,20 @@ Docker로 컨테이너를 실행하는 간단한 방법은 터미널에서 docke
 
 ### 설정  
 
-우선 홈디렉토리에 docker 폴더 및 Plex Media Server의 설정을 저장할 폴더를 아래와 같이 생성합니다.  
+우선 홈디렉토리에 Docker 및 Plex Media Server의 설정을 저장할 폴더를 아래와 같이 생성합니다.  
 ```bash
-$ mkdir docker
+$ mkdir ~/docker
 $ cd docker
 $ mkdir plex
 $ cd plex
 $ mkdir config
-$ cd ..
 ```
 
 
-cocker-compose.yml 파일을 다음과 같이 생성합니다.  
-자신의 환경에 맞게 적당히 수정하세요.  
+docker-compose.yml 파일을 다음과 같이 생성합니다.  
+자신의 환경에 맞게 수정하세요.  
 ```bash
+$ cd ~/docker
 $ vim docker-compose.yml
 ```
 
@@ -111,20 +111,21 @@ services:
 ```
 
 **volumes:**   
-docker 컨테이너(Plex Media Server)와 Host PC의 폴더 연결을 위한 항목입니다.  
+Docker 컨테이너(Plex Media Server)와 Host PC의 폴더 연결을 위한 항목입니다.  
 
-`/storage/public:/data`는 컨텐츠가 저장되어 있는 Host PC의 `/storage/public` 폴더를 Plex Media Server 컨테이너의 `/data` 폴더에 연결한다는 의미입니다.  
-이 설정을 사용해 Host PC의 컨텐츠를 docker 컨테이너(Plex Media Servder)를 통해 서비스 할 수 있습니다.  
+`/storage/public:/data`는 컨텐츠가 저장되어 있는 Host PC의 `/storage/public` 폴더를 Docker 컨테이너(Plex Media Server)의 `/data` 폴더에 연결한다는 의미입니다.  
+이 설정을 사용해 Host PC의 컨텐츠를 Docker 컨테이너(Plex Media Servder)를 통해 서비스 할 수 있습니다.  
 `/storage/public`을 자신의 환경에 맞게 변경하세요.  
 
-`/home/계정/docker/plex/config:/config`는 Host PC의 `/home/계정/docker/plex/config` 폴더를 Plex Media Server의 설정이 저장되는 `/config` 폴더에 연결한다는 의미입니다.  
-이 설정을 사용해 docker 컨테이너(Plex Media Server)의 설정을 Host PC에 영구적으로 저장할 수 있습니다.  
+`/home/계정/docker/plex/config:/config`는 Host PC의 `/home/계정/docker/plex/config` 폴더를 Docker 컨테이너(Plex Media Server)의 `/config` 폴더에 연결한다는 의미입니다.  
+Docker 컨테이너(Plex Media Server)의 /config 폴더는 Plex Media Server의 설정이 저장되는 폴더입니다.  
+이 설정을 사용해 Docker 컨테이너(Plex Media Server)의 설정을 Host PC에 영구적으로 저장할 수 있습니다.  
 설정을 하지 않아도 무방하나 이런 경우 컨테이너를 삭제하면 설정이 초기화됩니다.  
 Plex Media Server의 설정을 계속 유지하기 위해 컨테이너 내부가 아닌 Host PC에 설정을 저장하는 것이 좋습니다.    
 `/home/계정/docker/plex/config`를 자신의 환경에 맞게 변경하세요.  
 
 **environment:**  
-docker 컨테이너(Plex Media Server)의 환경변수를 설정하기 위한 항목입니다.  
+Docker 컨테이너(Plex Media Server)의 환경변수를 설정하기 위한 항목입니다.  
 
 environment에서 중요한 항목은 `PLEX_CLAIM`과 `ADVERTISE_IP`입니다.  
 `PLEX_CLAIM` 코드는 [https://plex.tv/claim](https://plex.tv/claim)에 접속하여 받을 수 있습니다.  
@@ -142,4 +143,4 @@ $ docker-compose up -d plex
 ```
 
 docker-compose.yml에서 plex라는 이름을 가진 컨테이너를 백그라운드(-d)로 실행(up)하라는 의미입니다.  
-`-d` 옵션을 주지 않으면 터미널 창을 닫을 때 컨테이너가 같이 종료됩니다.  
+`-d` 옵션을 주지 않으면 터미널 창을 닫을 때 Docker 컨테이너(Plex Media Server)가 같이 종료됩니다.  
