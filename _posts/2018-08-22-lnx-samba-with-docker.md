@@ -29,7 +29,7 @@ toc_sticky: true
 ### 설정  
 
 [이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)에서 docker-compose용 YAML 설정파일과 Plex Media Server 컨테이너의 설정을 Host PC에 저장하기 위해 홈디렉토리에 폴더(docker)를 생성하였습니다.  
-이번 포스트의 Samba Server 컨테이너의 설정 역시 Host PC에 저장할 것이기에 설정을 저장할 폴더를 아래와 같이 만듭니다.  
+이번 포스트의 Samba Server 컨테이너의 설정 역시 Host PC에 저장할 것이기에 설정을 저장할 폴더를 아래와 같이 생성합니다.  
 ```bash
 $ cd docker
 $ mkdir samba
@@ -61,7 +61,7 @@ $ vim docker-compose.yml
 docker 컨테이너(Samba Server)와 Host PC의 폴더 연결을 위한 항목입니다.  
 
 `/storage:/mnt`는 Host PC의 `/storage` 폴더를 Samba Server에서 Windows와 같은 Samba Client에게 공유폴더로 제공하기 위해 Samba Server 컨테이너의 `/mnt` 폴더에 연결한다는 의미입니다.  
-이 설정을 사용해 Host PC의 폴더를 docker 컨테이너(Samba Servder)를 통해 공유폴더로 서비스 할 수 있습니다.  
+이 설정을 사용해 Host PC의 폴더를 docker 컨테이너(Samba Server)를 통해 공유폴더로 서비스 할 수 있습니다.  
 `/storage`을 자신의 환경에 맞게 변경하세요.  
 
 `/home/계정/docker/samba:/etc/samba`는 Host PC의 `/home/계정/docker/samba` 폴더를 Samba Server의 설정이 저장되는 `/etc/samba` 폴더에 연결한다는 의미입니다.  
