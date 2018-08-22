@@ -4,7 +4,6 @@ description: "Docker를 사용하여 Plex Media Server를 설치하는 방법 �
 category: Linux
 tags: [Linux, Docker, Plex, 도커]
 toc: true
-toc_label: "Table of Contents"
 toc_icon: "cog"
 toc_sticky: true
 ---
