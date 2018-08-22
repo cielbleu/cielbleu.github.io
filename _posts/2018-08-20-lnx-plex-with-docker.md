@@ -4,7 +4,6 @@ description: "Docker를 사용하여 Plex Media Server를 설치하는 방법 �
 category: Linux
 tags: [Linux, Docker, Plex, 도커]
 toc: true
-toc_icon: "cog"
 toc_sticky: true
 ---
 
@@ -18,7 +17,7 @@ toc_sticky: true
 Docker에 대해서 알고 계신가요?  
 필자는 Docker라는 단어를 꽤 오래전에 듣긴 했지만 관심을 가진 것은 최근입니다.  
 아직 Docker에 대해서 잘 모르신다면 먼저 검색을 통해 Docker가 어떤 물건인지 알아보시길 권장하고 싶습니다.  
-본 문서에서는 Docker를 사용하여 Plex Media Server를 설치하는 방법에 대해서 간략히 정리해 보았습니다.  
+이 포스트에서는 Docker를 사용하여 Plex Media Server를 설치하는 방법에 대해서 간략히 정리해 보았습니다.  
 
 ## 1. Docker 설치  
 
@@ -51,9 +50,8 @@ $ docker version //Docker 클라이언트 및 서버 정보 확인
 ## 2. Docker로 Plex Media Server 실행하기  
 
 Docker로 컨테이너를 실행하는 간단한 방법은 터미널에서 docker run 명령어를 사용하는 것입니다.  
-설정이 복잡하지 않을 때에는 docker run 명령어로 실행하는 것이 그다지 문제가 되지 않지만,  
-설정이 복잡해질 경우에는 명령어가 굉장히 복잡해지기 때문에 현실적으로 사용하기가 어렵습니다.  
-조금 더 편리한 사용을 위해 본 문서에서는 YAML 방식의 설정파일을 이용하는 Docker-Compose를 사용하여 컨테이너를 실행할 것입니다.  
+설정이 복잡하지 않을 때에는 docker run 명령어로 실행하는 것이 그다지 문제가 되지 않지만, 설정이 복잡해질 경우에는 명령어가 굉장히 복잡해지기 때문에 현실적으로 사용하기가 어렵습니다.  
+조금 더 편리한 사용을 위해 YAML 방식의 설정파일을 이용하는 Docker-Compose를 사용하여 컨테이너를 실행할 것입니다.  
 
 ### 설정  
 
