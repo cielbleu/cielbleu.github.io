@@ -18,8 +18,8 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 locale                   : "en-US"
 title                    : "Simple is the best"
 title_separator          : "-"
-name                     : "Cielbleu"
-description              : "Cielbleu's Blog"
+name                     : "Jefferson Ryu"
+description              : "Blog"
 url                      : "https://cielbleu.github.io" # the base hostname & protocol for your site e.g.
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "cielbleu/cielbleu.github.io" # GitHub username/repo-name e.g.
@@ -50,9 +50,9 @@ staticman:
     email                : # "md5"
   generatedFields:
     date:
-      type               : # "date"
+      type               : "date"
       options:
-        format           : # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
+        format           : "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 reCaptcha:
   siteKey                :
   secret                 :
@@ -92,9 +92,9 @@ social:
 
 # Analytics
 analytics:
-  provider               : false # false (default), "google", "google-universal", "custom"
+  provider               : "google" # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          :
+    tracking_id          : "UA-124455788-1"
     anonymize_ip         : # true, false (default)
 
 
@@ -102,7 +102,7 @@ analytics:
 author:
   name             : "Jefferson Ryu"
   avatar           : "/assets/images/bio-photo.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
+  bio              : "사소함이 쌓이고 쌓여 탁월함이 만들어진다."
   location         : "Seoul,Korea"
   email            : "cielblue2u@gmail.com"
   uri              :
