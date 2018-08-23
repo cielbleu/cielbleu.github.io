@@ -104,5 +104,5 @@ $ docker-compose up -d samba
 ```
 
 docker-compose.yml에서 samba라는 이름을 가진 컨테이너를 백그라운드(-d)로 실행(up)하라는 의미입니다.  
-`-d` 옵션을 주지 않으면 터미널 창을 닫을 때 컨테이너가 같이 종료됩니다.  
+`-d` 옵션을 주지 않으면 터미널 창을 닫을 때 Docker 컨테이너(Samba Server)가 같이 종료됩니다.  
 만약 docker-compose.yml 파일에 설정된 모든 컨테이너를 실행하고자 한다면 `docker-compose up -d`와 같이 실행하시면 됩니다.  
