@@ -118,7 +118,7 @@ Docker 컨테이너(Plex Media Server)와 Host PC의 폴더 연결을 위한 항
 `/storage/public`을 자신의 환경에 맞게 변경하세요.  
 
 `/home/계정/docker/plex/config:/config`는 Host PC의 `/home/계정/docker/plex/config` 폴더를 Docker 컨테이너(Plex Media Server)의 `/config` 폴더에 연결한다는 의미입니다.  
-Docker 컨테이너(Plex Media Server)의 /config 폴더는 Plex Media Server의 설정이 저장되는 폴더입니다.  
+Docker 컨테이너(Plex Media Server)의 `/config` 폴더는 Plex Media Server의 설정이 저장되는 폴더입니다.  
 이 설정을 사용해 Docker 컨테이너(Plex Media Server)의 설정을 Host PC에 영구적으로 저장할 수 있습니다.  
 설정을 하지 않아도 무방하나 이런 경우 컨테이너를 삭제하면 설정이 초기화됩니다.  
 Plex Media Server의 설정을 계속 유지하기 위해 컨테이너 내부가 아닌 Host PC에 설정을 저장하는 것이 좋습니다.    
