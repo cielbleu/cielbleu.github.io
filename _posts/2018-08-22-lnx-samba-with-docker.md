@@ -8,7 +8,7 @@ toc_sticky: true
 ---
 
 [Archlinux](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [Samba Server](https://www.samba.org/)를 설치하는 방법에 대한 정리입니다.  
-![Samba Logo](/assets/images/samba_logo.png){: .full}
+![Samba Logo](/assets/images/samba_logo.svg)
 
 
 
