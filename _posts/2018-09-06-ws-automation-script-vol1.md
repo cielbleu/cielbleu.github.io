@@ -35,7 +35,7 @@ Windows Server를 관리하다 보면 반드시 필요하지만, 매번 신경 �
 그리고 이 스크립트를 사용해 매일 새벽에 로컬 서버의 별도 폴더에 압축하여 보관하도록 설정했습니다.  
 
 - 전체 백업  
-```cmd
+```bat
 @echo off
 setlocal
 
@@ -74,7 +74,7 @@ exit
 ```
 
 - 차등 백업  
-```cmd
+```bat
 @echo off
 setlocal
 
@@ -133,7 +133,7 @@ exit
 `%DATE%` 환경변수는 한글판 OS와 영문판 OS에서 출력되는 형식이 서로 다릅니다.  
 
 - 한글판 OS  
-```cmd
+```bat
 Microsoft Windows [Version 6.3.9600]
 (c) 2013 Microsoft Corporation. All rights reserved.
 
@@ -142,7 +142,7 @@ C:\Users\MyAcccount>echo %date%
 ```
 
 - 영문판 OS  
-```cmd
+```bat
 Microsoft Windows [Version 6.3.9600]
 (c) 2013 Microsoft Corporation. All rights reserved.
 
