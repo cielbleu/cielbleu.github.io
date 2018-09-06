@@ -60,7 +60,7 @@ echo Start time : %YEAR%-%MONTH%-%DAY% %H%:%M%:%S% >> "D:\Archive\%YEAR%-%MONTH%
 "C:\Program Files\7-Zip\7z.exe" a -tzip "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup.zip" "D:\SQL_Backup\Full_Backup\*.bak"  >> "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt"
 "C:\Program Files\7-Zip\7z.exe" t -tzip "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup.zip"  >> "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt"
 
-:: Split the time string into hours/minutes/seconds
+:: Split the time string(hours/minutes/seconds)
 set H=%time:~0,2%
 set M=%time:~3,2%
 set S=%time:~6,2%
@@ -99,7 +99,7 @@ echo Start time : %YEAR%-%MONTH%-%DAY% %H%:%M%:%S% >> "D:\Archive\%YEAR%-%MONTH%
 "C:\Program Files\7-Zip\7z.exe" a -tzip "D:\Archive\%YEAR%-%MONTH%-%DAY%_Diff_Backup.zip" "D:\SQL_Backup\Diff_Backup\*.bak"  >> "D:\Archive\%YEAR%-%MONTH%-%DAY%_Diff_Backup_Log.txt"
 "C:\Program Files\7-Zip\7z.exe" t -tzip "D:\Archive\%YEAR%-%MONTH%-%DAY%_Diff_Backup.zip"  >> "D:\Archive\%YEAR%-%MONTH%-%DAY%_Diff_Backup_Log.txt"
 
-:: Split the time string into hours/minutes/seconds
+:: Split the time string(hours/minutes/seconds)
 set H=%time:~0,2%
 set M=%time:~3,2%
 set S=%time:~6,2%
