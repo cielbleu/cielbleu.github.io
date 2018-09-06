@@ -172,7 +172,7 @@ set DAY=%date:~8,2%
 시간 값을 모두 두 자리로 표현하기 위해 `set H=%time:~0,2%`로 구한 시간 값에 100을 더한 후 ‘1’번째 위치부터 2개의 문자를 가져와서 시간 값으로 다시 설정했습니다.  
 `set /a` 명령어를 사용해 간단한 계산을 할 수 있으나 결과가 그다지 정밀하지는 않으므로 간단한 계산에만 사용하는 것이 좋습니다.  
 
-**`echo Start time : %YEAR%-%MONTH%-%DAY% %H%:%M%:%S% >> "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt"`**  
+**echo Start time : %YEAR%-%MONTH%-%DAY% %H%:%M%:%S% >> "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt"**  
 스크립트 시작 시각을 파일에 입력하는 명령어입니다.  
 `%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt` 파일은 스크립트의 실행 결과를 저장하는 파일이며, 이후 관리자에게 메일로 전송하기 위해 사용합니다.  
 
@@ -215,6 +215,8 @@ set DAY=%date:~8,2%
 ![Task Scheduler #1](/assets/images/task_scheduler_1.png)
 
 2. 아래 이미지와 같이 설정합니다.  
+샘플 이미지에서는 계정 정보를 지웠습니다. `사용자 또는 그룹 변경` 버튼을 클릭하여 자신의 계정을 선택하세요.  
+보통은 기본적으로 자신의 계정이 선택되어 있습니다.  
 ![Task Scheduler #2](/assets/images/task_scheduler_2.png)
 
 3. `트리커` 탭을 선택하고 `새로 만들기` 버튼을 클릭합니다.  
