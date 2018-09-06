@@ -9,7 +9,7 @@ toc_sticky: true
 
 Windows Server를 관리하면서 반드시 필요하지만, 매번 신경 쓰기에는 귀찮은 몇 가지 소소한 사항을 자동으로 처리하기 위해 만든 스크립트 모음입니다.  
 
-![Windows Server Logo](/assets/images/windows-server.svg)
+![Windows Server Logo](/assets/images/windows-server-logo.svg)
 
 
 
@@ -129,7 +129,7 @@ exit
 **set DAY=%date:~7,2%**  
 `%DATE%` 환경변수의 값을 나눠 각각 년/월/일 변수로 설정하는 명령어입니다.  
 한글판 OS를 사용하신다면 그냥 `%DATE%` 환경변수를 사용해도 됩니다.  
-이 스크립트에서 년/월/일을 각각 변수로 나누는 이유는 영문판 OS에서도 동일한 스크립트를 사용하기 위함입니다.  
+이 스크립트에서 년/월/일을 각각 변수로 나눈 이유는 영문판 OS에서 사용하기 위한 목적으로 작성했기 때문입니다.  
 -한글판 OS
 ```cmd
 Microsoft Windows [Version 6.3.9600]
@@ -147,7 +147,7 @@ Microsoft Windows [Version 6.3.9600]
 C:\Users\MyAcccount>echo %date%
 Tue 09/06/2018
 ```
-`set YEAR=%date:~10,4%`는 YEAR 환경변수에 `%DATE%` 환경변수의 값 중 10번째 위치부터 4개의 문자를 설정하라는 의미입니다.  
+`set YEAR=%date:~10,4%`는 YEAR 환경변수에 `%DATE%` 환경변수의 값 중 ‘10’번째 위치부터 4개 문자에 해당하는 값을 설정하라는 의미입니다.  
 참고로 첫 번째 위치는 '0'입니다.  
 이 스크립트는 영문판 OS 환경으로 작성한 것이므로 한글판 OS에서 사용하기 위해서는 이 부분을 아래와 같이 변경하여야 합니다.  
 ```cmd
@@ -166,7 +166,7 @@ set DAY=%date:~8,2%
 **set H=%H:~1,2%**  
 `set H=%time:~0,2%`로 시간 값을 구하면 오전 2시와 오후 2시는 각각 2과 14로 표시됩니다.  
 자릿수가 맞지 않기 때문에 보기에 좋지 않습니다.  
-시간 값을 모두 두자리로 표현하기 위해 `set H=%time:~0,2%`로 구한 시간 값에 100을 더한 후 첫 번째 위치부터 2개의 문자를 가져와서 시간 값으로 다시 설정했습니다.  
+시간 값을 모두 두자리로 표현하기 위해 `set H=%time:~0,2%`로 구한 시간 값에 100을 더한 후 ‘0’번째 위치부터 2개의 문자를 가져와서 시간 값으로 다시 설정했습니다.  
 `set /a` 명령어를 사용해 간단한 계산을 할 수 있으나 결과가 그다지 정밀하지는 않으므로 간단한 계산에만 사용하는 것이 좋습니다.  
 
 **echo Start time : %YEAR%-%MONTH%-%DAY% %H%:%M%:%S% >> "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt"**  
