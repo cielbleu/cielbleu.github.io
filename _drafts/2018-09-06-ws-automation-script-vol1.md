@@ -111,6 +111,8 @@ echo End time : %YEAR%-%MONTH%-%DAY% %H%:%M%:%S% >> "D:\Archive\%YEAR%-%MONTH%-%
 exit
 ```
 
+### 구문 분석  
+
 **@echo off**  
 스크립트가 실행될 때 스크립트 파일 내의 명령들을 쓸데없이 '복창'하지 않도록 하는 명령어입니다.  
 `@echo off` 명령어가 없으면 스크립트 내에서 명령어들이 실행될 때마다 cmd 화면에 출력되기에 화면이 지저분해집니다.  
@@ -155,7 +157,6 @@ set YEAR=%date:~0,4%
 set MONTH=%date:~5,2%
 set DAY=%date:~8,2%
 ```
-
 하지만 한글판 OS에서는 년/월/일을 변수로 나눌 필요 없이 그냥 `%DATE%` 환경변수를 사용해도 됩니다.  
 
 **set H=%time:~0,2%**  
@@ -175,7 +176,7 @@ set DAY=%date:~8,2%
 스크립트 시작 시각을 파일에 입력하는 명령어입니다.  
 `%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt` 파일은 스크립트의 실행 결과를 저장하는 파일이며, 이후 관리자에게 메일로 전송하기 위해 사용합니다.  
 
-**`"C:\Program Files\7-Zip\7z.exe" a -tzip "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup.zip" "D:\SQL_Backup\Full_Backup\*.bak"  >> "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt"`**  
+**"C:\Program Files\7-Zip\7z.exe" a -tzip "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup.zip" "D:\SQL_Backup\Full_Backup\*.bak"  >> "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt"**  
 스크립트의 실제 목적인 DB 백업 파일을 압축하는 명령어입니다.  
 [7zip](https://www.7-zip.org)을 이용하여 `"D:\SQL_Backup\Full_Backup\*.bak"` 위치에 있는 bak 확장자를 갖는 모든 파일을 `"D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup.zip"`라는 파일로 압축하여 저장하라는 의미입니다.  
 그리고 그 결과를 `"D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt"` 파일에 저장하라는 의미입니다.  
@@ -191,7 +192,7 @@ set DAY=%date:~8,2%
 >-t{archive_type}[:s{Size}][:r][:e][:a]  
 >[출처](https://sevenzip.osdn.jp/chm/cmdline/switches/index.htm)  
 
-**`"C:\Program Files\7-Zip\7z.exe" t -tzip "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup.zip"  >> "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt"`**  
+**"C:\Program Files\7-Zip\7z.exe" t -tzip "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup.zip"  >> "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt"**  
 압축한 DB 백업 파일에 이상이 있는지 테스트하고 그 결과를 `"D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt"` 파일에 저장하라는 명령어입니다.  
 
 첫 번째 Argument `t`는 압축파일을 테스트하는 명령어입니다.  
@@ -205,3 +206,27 @@ set DAY=%date:~8,2%
 
 **exit**  
 스크립트 종료 후 Command Window를 종료하는 명령어입니다.  
+
+### 작업 스케줄러 등록  
+
+스크립트를 생성하였으면 서버가 한가한 시간에 자동으로 실행되도록 작업 스케줄러에 등록할 필요가 있습니다.  
+
+1. `Server Manager > Tools > Task Scheduler`를 실행하여 `작업 만들기`를 클릭합니다.  
+![Task Scheduler #1](/assets/images/task_scheduler_1.png)
+
+2. 아래 이미지와 같이 설정합니다.  
+![Task Scheduler #2](/assets/images/task_scheduler_2.png)
+
+3. `트리커` 탭을 선택하고 `새로 만들기` 버튼을 클릭합니다.  
+그리고 아래 이미지와 같이 설정합니다.  
+아래 예시 이미지는 전체 백업용 작업 스케줄러이며 매주 일요일 새벽 1시 30분에 실행되도록 설정하였습니다.  
+차등 백업용으로 작업 스케줄러는 매일 새벽 2시 30분에 실행되도록 설정하였습니다.  
+![Task Scheduler #3](/assets/images/task_scheduler_3.png)
+
+4. `동작` 탭을 선택하고 `새로 만들기` 버튼을 클릭합니다.  
+그리고 아래 이미지와 같이 설정합니다.  
+`트리커` 탭에서 설정한 시각이 되면 등록한 스크립트를 실행하라는 의미입니다.  
+![Task Scheduler #4](/assets/images/task_scheduler_4.png)
+
+5. `설정` 탭을 선택하고 아래 이미지와 같이 설정합니다.  
+![Task Scheduler #5](/assets/images/task_scheduler_5.png)
