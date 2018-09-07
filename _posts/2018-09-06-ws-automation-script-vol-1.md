@@ -35,7 +35,7 @@ Windows Server를 관리하다 보면 반드시 필요하지만, 매번 신경 �
 그리고 이 스크립트를 사용해 매일 새벽에 로컬 서버의 별도 폴더에 압축하여 보관하도록 설정했습니다.  
 
 - 전체 백업
-```dos
+```
 @echo off
 setlocal
 
@@ -74,7 +74,7 @@ exit
 ```
 
 - 차등 백업
-```dos
+```
 @echo off
 setlocal
 
@@ -133,7 +133,7 @@ exit
 `%DATE%` 환경변수는 한글판 OS와 영문판 OS에서 출력되는 형식이 서로 다릅니다.  
 
 - 한글판 OS
-```dos
+```
 Microsoft Windows [Version 6.3.9600]
 (c) 2013 Microsoft Corporation. All rights reserved.
 
@@ -142,7 +142,7 @@ C:\Users\MyAcccount>echo %date%
 ```
 
 - 영문판 OS
-```dos
+```
 Microsoft Windows [Version 6.3.9600]
 (c) 2013 Microsoft Corporation. All rights reserved.
 
@@ -155,7 +155,7 @@ Tue 09/06/2018
 참고로 첫 번째 위치는 '0'부터 시작합니다.  
 이 스크립트는 영문판 OS 환경으로 작성한 것이므로 한글판 OS에서 사용하기 위해서는 이 부분을 아래와 같이 변경하여야 합니다.  
 
-```dos
+```
 set YEAR=%date:~0,4%
 set MONTH=%date:~5,2%
 set DAY=%date:~8,2%
