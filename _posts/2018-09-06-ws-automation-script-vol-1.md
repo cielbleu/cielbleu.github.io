@@ -177,12 +177,12 @@ set DAY=%date:~8,2%
 
 **echo Start time : %YEAR%-%MONTH%-%DAY% %H%:%M%:%S% >> "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt"**  
 스크립트 시작 시각을 파일에 입력하는 명령어입니다.  
-`%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt` 파일은 스크립트의 실행 결과를 저장하는 파일이며, 이후 관리자에게 메일로 전송하기 위해 사용합니다.  
+`%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt` 파일은 스크립트의 실행 결과를 기록하는 파일이며, 이후 관리자에게 메일로 전송하기 위해 사용합니다.  
 
 **"C:\Program Files\7-Zip\7z.exe" a -tzip "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup.zip" "D:\SQL_Backup\Full_Backup\*.bak"  >> "D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt"**  
 스크립트의 실제 목적인 DB 백업 파일을 압축하는 명령어입니다.  
 [7zip](https://www.7-zip.org)을 이용하여 `"D:\SQL_Backup\Full_Backup\*.bak"` 위치에 있는 bak 확장자를 갖는 모든 파일을 `"D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup.zip"`라는 파일로 압축하여 저장하라는 의미입니다.  
-그리고 그 결과를 `"D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt"` 파일에 저장하라는 의미입니다.  
+그리고 그 결과를 `"D:\Archive\%YEAR%-%MONTH%-%DAY%_Full_Backup_Log.txt"` 파일에 기록하라는 의미입니다.  
 
 첫 번째 Argument `a`는 압축파일에 파일을 추가하는 명령어입니다.  
 사용법은 아래와 같습니다.  
