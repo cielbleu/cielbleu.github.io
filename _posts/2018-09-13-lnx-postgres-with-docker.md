@@ -64,7 +64,7 @@ $ vim docker-compose.yml
     user: 1000:100
 ```
 
-**port:**  
+**ports:**  
 Host PC의 네트워크 포트를 Docker 컨테이너(PostgreSQL)의 특정 포트와 연결하기 위한 항목입니다.  
 
 5432는 PostgreSQL이 사용하는 네트워크 포트인데, 이 포트를 Host PC의 15432와 연결한다는 의미입니다.  
@@ -194,7 +194,7 @@ $ vim docker-compose.yml
      - PGADMIN_DEFAULT_PASSWORD=PassW@rd!!(pgAdmin 최초 접속시 사용할 비밀번호)
 ```
 
-**port:**  
+**ports:**  
 Host PC의 네트워크 포트를 Docker 컨테이너(pgAdmin)의 특정 포트와 연결하기 위한 항목입니다.  
 
 80번 포트는 pgAdmin이 사용하는 네트워크 포트인데, 이 포트를 Host PC의 8088번 포트와 연결한다는 의미입니다.  
@@ -223,8 +223,8 @@ docker-compose.yml에서 pgadmin이라는 이름을 가진 컨테이너를 백�
 pgAdmin은 웹브라우져로 접속합니다.  
 웹브라우져에 http://host pc ip 또는 url:8088을 입력하고 접속합니다.  
 로그인 윈도우에 초기 ID와 비밀번호를 입력합니다.  
->초기 ID: PGADMIN_DEFAULT_EMAIL=my@mail.com
->초기 비밀번호: PGADMIN_DEFAULT_PASSWORD=PassW@rd!! 
+>초기 ID: PGADMIN_DEFAULT_EMAIL=my@mail.com  
+>초기 비밀번호: PGADMIN_DEFAULT_PASSWORD=PassW@rd!!  
 **로그인**  
 ![pgAdmin_Login](/assets/images/pgadmin_login.png)
 
