@@ -225,6 +225,7 @@ pgAdmin은 웹브라우져로 접속합니다.
 로그인 윈도우에 초기 ID와 비밀번호를 입력합니다.  
 >초기 ID: PGADMIN_DEFAULT_EMAIL=my@mail.com  
 >초기 비밀번호: PGADMIN_DEFAULT_PASSWORD=PassW@rd!!  
+
 **로그인**  
 ![pgAdmin_Login](/assets/images/pgadmin_login.png)
 
