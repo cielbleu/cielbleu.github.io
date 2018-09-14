@@ -32,8 +32,8 @@ toc_sticky: true
 
 ### 설정  
 
-[이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)에서 docker-compose용 YAML 설정 파일과 Plex Media Server의 설정을 Host PC에 저장하기 위해 홈디렉토리에 폴더(docker)를 생성하였습니다.  
-이번 포스트의 PostgreSQL 설정도 Host PC에 저장하기 위해 설정을 저장할 폴더를 아래와 같이 생성합니다.  
+[이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)에서 docker-compose용 YAML 설정 파일과 Plex Media Server의 설정을 Host PC에 저장하기 위해 홈디렉토리에 docker 디렉토리 및 하위 디렉토리를 생성하였습니다.  
+이번 포스트의 PostgreSQL 컨테이너도 설정 및 데이터를 Host PC에 저장하기 위해 Host PC에 디렉토리를 아래와 같이 생성합니다.  
 ```bash
 $ cd ~/docker
 $ mkdir pgsql
@@ -59,8 +59,8 @@ $ vim docker-compose.yml
      - /home/계정/docker/pgsql/pgdata:/var/lib/postgresql/data
      - /home/계정/docker/pgsql/config/postgres.conf:/etc/postgresql/postgres.conf
     environment:
-     - POSTGRES_USER=master(PostgreSQL 관리자로 사용할 계정(기본값은 postgres))
-     - POSTGRES_PASSWORD=PassW@rd!!(PostgreSQL 관리자로 사용할 계정의 비밀번호)
+     - POSTGRES_USER=master (PostgreSQL 관리자로 사용할 계정(기본값은 postgres))
+     - POSTGRES_PASSWORD=PassW@rd!! (PostgreSQL 관리자로 사용할 계정의 비밀번호)
     user: 1000:100
 ```
 
@@ -71,10 +71,10 @@ Host PC의 네트워크 포트를 Docker 컨테이너(PostgreSQL)의 특정 포�
 외부 또는 다른 Docker 컨테이너에서 PostgreSQL에 접속하기 위해서는 5432번 포트가 아닌 15432번 포트로 접속하여야 합니다.  
 
 **volumes:**   
-Docker 컨테이너(PostgreSQL)와 Host PC의 폴더 연결을 위한 항목입니다.  
+Docker 컨테이너(PostgreSQL)와 Host PC의 디렉토리 연결을 위한 항목입니다.  
 
-`/home/계정/docker/pgsql/pgdata:/var/lib/postgresql/data`는 Host PC의 `/home/계정/docker/pgsql/pgdata` 폴더를 Docker 컨테이너(PostgreSQL)의 `/var/lib/postgresql/data` 폴더에 연결한다는 의미입니다.  
-Docker 컨테이너(PostgreSQL)의 `/var/lib/postgresql/data` 폴더는 PostgreSQL의 데이터가 저장되는 폴더입니다.  
+`/home/계정/docker/pgsql/pgdata:/var/lib/postgresql/data`는 Host PC의 `/home/계정/docker/pgsql/pgdata` 디렉토리를 Docker 컨테이너(PostgreSQL)의 `/var/lib/postgresql/data` 디렉토리에 연결한다는 의미입니다.  
+Docker 컨테이너(PostgreSQL)의 `/var/lib/postgresql/data` 디렉토리는 PostgreSQL의 데이터가 저장되는 디렉토리입니다.  
 이 설정을 사용해 PostgreSQL의 데이터를 Host PC에 영구적으로 저장할 수 있습니다.  
 설정하지 않아도 무방하나 이런 경우 컨테이너를 삭제하면 데이터가 초기화됩니다.   
 `/home/계정/docker/pgsql/pgdata`를 자신의 환경에 맞게 변경하세요.  
@@ -97,7 +97,7 @@ Docker 컨테이너(PostgreSQL)의 환경변수를 설정하기 위한 항목입
 
 **user: 1000:100**  
 `user: 1000:100`은 Docker 컨테이너(PostgreSQL)를 실행할 때 uid와 gid를 지정하는 설정입니다.  
-이 설정이 없으면 **volumes:**에서 지정한 pgdata 폴더의 소유자가 999라는 숫자로 표시됩니다.  
+이 설정이 없으면 **volumes:**에서 지정한 `home/계정/docker/pgsql/pgdata` 디렉토리의 소유자가 999라는 숫자로 표시됩니다.  
 만약 Host PC에 uid가 999번인 계정이 있다면 소유자가 그 계정으로 표시됩니다.  
 
 ```bash
@@ -136,8 +136,10 @@ Debian-exim:x:101:101::/var/spool/exim4:/bin/false
 I have no name!@460a58a59084:/$
 ```
 
-그리고 Database를 초기화하는 과정에서 데이터 저장 위치인 `/var/lib/postgresql/data`의 소유자를 POSTGRES_USER 환경변수에 설정한 계정으로 변경합니다.  
-그런데 `/var/lib/postgresql/data`는 Host PC의 `/home/계정/docker/pgsql/pgdata`와 연결되어 있기 때문에 Host PC의 해당 폴더의 소유자가 999로 변경됩니다.  
+Database를 초기화하는 과정에서 데이터 저장 위치인 `/var/lib/postgresql/data`의 소유자가 POSTGRES_USER 환경변수에 설정한 계정으로 변경됩니다.  
+그런데 `/var/lib/postgresql/data`는 Host PC의 `/home/계정/docker/pgsql/pgdata`와 연결되어 있기 때문에 Host PC의 해당 디렉토리의 소유자가 999로 변경됩니다.  
+따라서 Host PC에서 디렉토리를 조회해보면 Host PC의 uid와 gid를 사용하여 표시하므로 소유자가 999(Host PC에는 999번 uid가 없음)로 표시되는 것입니다.  
+Host PC의 uid와 gid는 각자의 환경에 따라 다르므로 이 포스트와 다르게 표시될 수 있습니다.  
 
 이 문제 해결을 위해 [공식사이트](https://hub.docker.com/_/postgres/)에서는 3가지 방법을 제시하는데, 이 포스트에서는 3번째 방법을 사용하였습니다.  
 
@@ -165,14 +167,16 @@ $ docker-compose up -d postgres
 docker-compose.yml에서 postgres라는 이름을 가진 컨테이너를 백그라운드(-d)로 실행(up)하라는 의미입니다.  
 `-d` 옵션을 주지 않으면 터미널 창을 닫을 때 Docker 컨테이너가 같이 종료됩니다.  
 
-## 2. Docker로 pgAdmin 실행하기  
+
+
+## 3. Docker로 pgAdmin 실행하기  
 PostgreSQL 관리 도구는 여러 가지가 있지만 이 포스트에서는 pgAdmin을 사용합니다.  
 [공식사이트](https://www.pgadmin.org/)에서 설치파일을 다운로드하여 사용할 수 있지만, 이 포스트에서는 Docker 컨테이너 방식을 사용합니다.  
 
 ### 설정  
 
-pgAdmin은 딱히 Host PC의 폴더와 연결해서 사용할 필요가 없으므로 설정을 저장할 폴더는 생성하지 않습니다.  
-단, https 프로토콜로 사용하기를 원한다면 Host PC의 폴더에 인증서를 저장할 필요가 있습니다.  
+pgAdmin은 딱히 Host PC의 디렉토리와 연결해서 사용할 필요가 없으므로 설정을 저장할 디렉토리는 생성하지 않습니다.  
+단, https 프로토콜로 사용하기를 원한다면 Host PC의 디렉토리에 인증서를 저장할 필요가 있습니다.  
 이 포스트에서는 http 프로토콜 사용으로 한정합니다.  
 
 docker-compose.yml 파일에 다음과 같이 추가합니다.  
