@@ -154,7 +154,7 @@ root@a25cc8b24be5:/#
 
 Database를 초기화하는 과정에서 데이터 저장 위치인 `/var/lib/mysql`의 소유자 및 그룹이 mysql 계정(uid 999)과 mysql 그룹(gid 999)으로 변경됩니다.  
 그런데 `/var/lib/mysql`는 Host PC의 `/home/계정/docker/mysql/data`와 연결되어 있기 때문에 Host PC의 해당 디렉토리의 소유자 및 그룹이 999로 변경됩니다.  
-따라서 Host PC에서 디렉토리를 조회해보면 Host PC의 uid와 gid를 사용하여 표시하므로 소유자는 999(Jost PC에는 999번 uid가 없음), 그룹은 엉뚱하게 adm(Host PC에서 999번 gid는 adm임)으로 표시되는 것입니다.  
+따라서 Host PC에서 디렉토리를 조회해보면 Host PC의 uid와 gid를 사용하여 표시하므로 소유자는 999(Host PC에는 999번 uid가 없음), 그룹은 엉뚱하게 adm(Host PC에서 999번 gid는 adm임)으로 표시되는 것입니다.  
 Host PC의 uid와 gid는 각자의 환경에 따라 다르므로 이 포스트와 다르게 표시될 수 있습니다.  
 
 ### 실행  
