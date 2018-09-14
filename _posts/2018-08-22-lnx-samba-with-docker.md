@@ -14,7 +14,7 @@ toc_sticky: true
 
 # Docker로 Samba Server 설치하기  
 
-[이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)에 이어 이번 포스트에서는 Docker를 사용하여 Samba Server를 설치하는 방법에 대해서 간략히 정리해 보았습니다.  
+[이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)에 이어 이번 포스트에서는 Docker를 사용하여 Samba Server를 설치하는 방법에 대해서 간략히 정리하였습니다.  
 
 ## 1. Docker 설치  
 
@@ -29,8 +29,8 @@ toc_sticky: true
 
 ### 설정  
 
-[이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)에서 docker-compose용 YAML 설정파일과 Plex Media Server의 설정을 Host PC에 저장하기 위해 홈디렉토리에 폴더(docker)를 생성하였습니다.  
-이번 포스트의 Samba Server 설정도 Host PC에 저장하기 위해 설정을 저장할 폴더를 아래와 같이 생성합니다.  
+[이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)에서 docker-compose용 YAML 설정 파일과 Plex Media Server의 설정을 Host PC에 저장하기 위해 홈디렉토리에 docker 디렉토리 및 하위 디렉토리를 생성하였습니다.  
+이번 포스트의 Samba Server 컨테이너도 설정 및 데이터를 Host PC에 저장하기 위해 Host PC에 디렉토리를 아래와 같이 생성합니다.  
 ```bash
 $ cd ~/docker
 $ mkdir samba
@@ -60,26 +60,27 @@ $ vim docker-compose.yml
 ```
 
 **volumes:**  
-Docker 컨테이너(Samba Server)와 Host PC의 폴더 연결을 위한 항목입니다.  
+Docker 컨테이너(Samba Server)와 Host PC의 디렉토리 연결을 위한 항목입니다.  
 
-`/storage:/mnt`는 Host PC의 `/storage` 폴더를 Samba Server에서 Windows와 같은 Samba Client에게 공유폴더로 제공하기 위해 Docker 컨테이너(Samba Server)의 `/mnt` 폴더에 연결한다는 의미입니다.  
-이 설정을 사용해 Host PC의 폴더를 Docker 컨테이너(Samba Server)를 통해 공유폴더로 서비스 할 수 있습니다.  
+`/storage:/mnt`는 Host PC의 `/storage` 디렉토리를 Samba Server에서 Windows와 같은 Samba Client에게 공유디렉토리로 제공하기 위해 Docker 컨테이너(Samba Server)의 `/mnt` 디렉토리에 연결한다는 의미입니다.  
+이 설정을 사용해 Host PC의 디렉토리를 Docker 컨테이너(Samba Server)를 통해 공유디렉토리로 서비스 할 수 있습니다.  
 `/storage`를 자신의 환경에 맞게 변경하세요.  
 
-`/home/계정/docker/samba:/etc/samba`는 Host PC의 `/home/계정/docker/samba` 폴더를 Docker 컨테이너(Samba Server)의 `/etc/samba` 폴더에 연결한다는 의미입니다.  
-Docker 컨테이너(Samba Server)의 `/etc/samba` 폴더는 Samba Server의 설정이 저장되는 폴더입니다.  
-이번 포스트에서는 설정을 저장하기 위함이 아니라 설정파일을 불러오기 위한 용도로 사용합니다.  
-기존에 사용하던 `smb.conf` 파일을 Host PC의 `/home/계정/docker/samba` 폴더에 복사하세요.  
+`/home/계정/docker/samba:/etc/samba`는 Host PC의 `/home/계정/docker/samba` 디렉토리를 Docker 컨테이너(Samba Server)의 `/etc/samba` 디렉토리에 연결한다는 의미입니다.  
+Docker 컨테이너(Samba Server)의 `/etc/samba` 디렉토리는 Samba Server의 설정이 저장되는 디렉토리입니다.  
+이번 포스트에서는 설정을 저장하기 위함이 아니라 설정 파일을 불러오기 위한 용도로 사용합니다.  
+기존에 사용하던 `smb.conf` 파일을 Host PC의 `/home/계정/docker/samba` 디렉토리에 복사하세요.  
 만약 기존에 사용하던 `smb.conf` 파일이 없다면 [여기](https://github.com/zentyal/samba/blob/master/examples/smb.conf.default)에서 샘플을 다운로드 하세요.  
-필자는 기존에 사용하던 `smb.conf` 파일에서 공유폴더 설정만 Docker 컨테이너(Samba Server)에 맞게 수정하였습니다.  
+필자는 기존에 사용하던 `smb.conf` 파일에서 공유디렉토리 설정만 Docker 컨테이너(Samba Server)에 맞게 수정하였습니다.  
 ```
 [storage]
-    path=/mnt  # **volumes:**에서 설정한 Docker 컨테이너(Samba Server) 공유폴더
+    path=/mnt  # **volumes:**에서 설정한 Docker 컨테이너(Samba Server) 공유디렉토리
     valid users=smb_test  # 아래 **environment:**에서 설정한 사용자 계정
     writable=yes
     directory mask=0755
     create mask=0644
 ```
+
 `/home/계정/docker/samba`및 `smb.conf`를 자신의 환경에 맞게 변경하세요.  
 
 **environment:**  
@@ -105,4 +106,4 @@ $ docker-compose up -d samba
 
 docker-compose.yml에서 samba라는 이름을 가진 컨테이너를 백그라운드(-d)로 실행(up)하라는 의미입니다.  
 `-d` 옵션을 주지 않으면 터미널 창을 닫을 때 Docker 컨테이너(Samba Server)가 같이 종료됩니다.  
-만약 docker-compose.yml 파일에 설정된 모든 컨테이너를 실행하고자 한다면 `docker-compose up -d`와 같이 실행하시면 됩니다.  
+만약 docker-compose.yml 파일에 설정된 모든 컨테이너를 실행하고자 한다면 `docker-compose up -d`와 같이 실행하면 됩니다.  
