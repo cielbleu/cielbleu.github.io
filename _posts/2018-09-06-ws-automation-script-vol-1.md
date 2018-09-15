@@ -7,7 +7,7 @@ toc: true
 toc_sticky: true
 ---
 
-Windows Server를 관리하면서 반드시 필요하지만, 매번 신경 쓰기에는 귀찮은 몇 가지 소소한 사항을 자동으로 처리하기 위해 만든 스크립트 모음입니다.  
+Windows Server를 관리하면서 반드시 필요하지만, 매번 신경 쓰기에는 귀찮은 몇 가지 소소한 사항을 자동으로 처리하기 위한 스크립트 모음입니다.  
 
 ![Windows Server Logo](/assets/images/windows_server_logo.svg)
 
