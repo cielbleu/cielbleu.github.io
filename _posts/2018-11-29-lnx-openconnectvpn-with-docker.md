@@ -142,14 +142,14 @@ AnyConnect 앱을 사용해 OpenConnect SSL VPN 서버에 접속하는 방법은
 인증서 방식으로 사용하기 위해서는 OpenConnect SSL VPN 서버에서 인증서를 발급받아 AnyConnect 앱에 설치해야 합니다.  
 
 아래의 순서대로 인증서를 발급받아 AnyConnect 앱에 인증서를 설치하세요.  
-1. Docker 컨테이너(OCServ)를 실행하고 있는 서버에 SSH로 접속합니다.  
-2. 다음의 명령어를 입력해 Docker 컨테이너(OCServ)로부터 인증서 발급 및 복사합니다.  
+1. Docker 컨테이너(OCServ)를 실행하고 있는 Host PC에 SSH로 접속합니다.  
+2. 다음의 명령어를 입력해 Docker 컨테이너(OCServ)로부터 인증서를 복사합니다.  
 ```bash
 $ cd ~/docker
 $ mkdir vpn_cert
 $ docker cp ocserv:/etc/ocserv/certs/client.p12 vpn_cert (ocserv 컨테이너의 /etc/ocserv/certs/client.p12 파일을 /home/자신의 계정/docker/vpn_cert/ 디렉토리에 복사)
 ```
-3. client.p12 파일을 서버에서 자신의 PC로 복사하거나 서버에서 직접 자신의 이메일로 client.12를 보냅니다. (SCP를 사용해 복사하면 편리합니다)  
+3. client.p12 파일을 Host PC에서 자신의 PC로 복사하거나 Host PC에서 직접 자신의 이메일로 client.p12를 보냅니다. (SCP를 사용해 복사하면 편리합니다)  
 4. client.p12 파일을 자신의 이메일로 보냅니다.  
 5. 스마트폰에서 자신의 이메일에 접속한 후 client.p12 파일을 다운로드 받습니다.  
 6. 스마트폰에 인증서를 설치합니다.  
@@ -159,7 +159,7 @@ $ docker cp ocserv:/etc/ocserv/certs/client.p12 vpn_cert (ocserv 컨테이너의
 ID & PW 방식으로 사용하기 위해서는 Docker 컨테이너(OCServ)로 접속해서 계정을 추가로 생성해야 합니다.  
 혼자만 사용할 예정이면 계정을 추가할 필요 없이 docker-compose.yml에 설정한 ID와 PW를 사용해도 됩니다.  
 
-1. Docker 컨테이너(OCServ)를 실행하고 있는 서버에 SSH로 접속합니다.  
+1. Docker 컨테이너(OCServ)를 실행하고 있는 Host PC에 SSH로 접속합니다.  
 2. 다음의 명령어를 입력해 Docker 컨테이너(OCServ)의 셸을 실행합니다.  
 ```bash
 $ docker exec -it ocserv sh
@@ -182,8 +182,8 @@ vpnuser2:*:$1$Clk6bTSk$nHFpEURdeA3wqS2dsLKpD1
 ![AnyConnect #2](/assets/images/AnyConnectClient2.png)
 
 3. `설명`과 `서버 주소`를 입력하고 `고급 설정`을 선택합니다.  
-`서버 주소`에는 Docker 컨테이너(OCServ)가 실행중인 서버의 공인 IP 또는 도메인을 입력합니다.  
-이 포스트에서는 Iptime 공유기 하단에 Docker 컨테이너 서버가 연결되어 있으므로 Iptime 공유기에 설정한 ddns 도메인(xxxxx.iptime.org)을 입력했습니다.  
+`서버 주소`에는 Docker 컨테이너(OCServ)를 실행중인 Host PC의 공인 IP 또는 도메인을 입력합니다.  
+이 포스트에서는 Iptime 공유기 하단에 Docker 컨테이너 Host PC가 연결되어 있으므로 Iptime 공유기에 설정한 ddns 도메인(xxxxx.iptime.org)을 입력했습니다.  
 ![AnyConnect #3](/assets/images/AnyConnectClient3.png)
 
 4. `고급 설정`에서 `인증서`를 선택하고 설치한 인증서를 선택합니다. ID & PW 방식으로 사용하고자 하는 경우에는 설정하지 않아도 됩니다.  
