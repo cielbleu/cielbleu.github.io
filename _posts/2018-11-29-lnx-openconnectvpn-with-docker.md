@@ -99,7 +99,7 @@ docker-compose.yml 파일에 cap_add를 빼고 privileged: true를 추가하면 
     container_name: ocserv
     image: vimagick/ocserv
     restart: always
-	privileged: true
+    privileged: true
     ports:
      - 443:443/tcp
 	 - 443:443/udp
@@ -131,7 +131,7 @@ docker-compose.yml에서 ocserv라는 이름을 가진 컨테이너를 백그라
 OpenConnect SSL VPN 서버에 접속하기 위해 Cisco의 AnyConnect 앱을 사용합니다.  
 Apple AppStore나 Google Play에서 AnyConnect를 검색하여 설치하세요.  
 노트북이나 데스크탑에서는 [OpenConnect-GUI for Windows](https://github.com/openconnect/openconnect-gui/releases)를 설치하세요.  
-![OpenConnect-GUI](/assets/images/OpenConnectGUI.png)
+![OpenConnect-GUI](/assets/images/OpenConnectGUI.PNG)
 
 ### 설정  
 
@@ -176,10 +176,10 @@ vpnuser2:*:$1$Clk6bTSk$nHFpEURdeA3wqS2dsLKpD1
 인증서 또는 ID & PW 준비가 완료되면 AnyConnect 앱에서 접속정보를 설정합니다.  
 
 1. AnyConnect 앱에서 `연결`을 선택합니다.  
-![AnyConnect #1](/assets/images/OpenConnectClient1.png)
+![AnyConnect #1](/assets/images/AnyConnectClient1.png)
 
 2. `새 VPN 연결 추가`를 선택합니다.  
-![AnyConnect #2](/assets/images/OpenConnectClient2.png)
+![AnyConnect #2](/assets/images/AnyConnectClient2.png)
 
 3. `설명`과 `서버 주소`를 입력하고 `고급 설정`을 선택합니다.  
 `서버 주소`에는 Docker 컨테이너(OCServ)가 실행중인 서버의 공인 IP 또는 도메인을 입력합니다.  
@@ -190,7 +190,7 @@ vpnuser2:*:$1$Clk6bTSk$nHFpEURdeA3wqS2dsLKpD1
 
 5. 마지막으로 `AnyConnect 앱 → 설정 → 신뢰할 수 없는 서버 차단` 항목의 체크박스를 해제하세요.  
 자체적으로 발급한 인증서를 사용하기 때문에 체크박스를 해제하지 않으면 접속이 되지 않습니다.   
-보안상 문제가 될 수 있는 부분이지만 혼자 사용할 VPN 서버이기 때문에 이 포스트에서는 이에 대한 해결책은
+보안상 문제가 될 수 있는 부분이지만 혼자 사용할 VPN 서버이기 때문에 이 포스트에서는 이에 대한 해결책은 포함하지 않았습니다.  
 ![AnyConnect #4](/assets/images/AnyConnectClient4.png)
 
 ### 결과  
