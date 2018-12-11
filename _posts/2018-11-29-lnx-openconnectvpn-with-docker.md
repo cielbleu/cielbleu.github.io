@@ -58,15 +58,15 @@ $ vim docker-compose.yml
      - 443(외부에 공개할 포트):443/tcp
      - 443:443/udp
     environment:
-	 - VPN_DOMAIN=ocserv
-	 - VPN_NETWORK=10.20.30.0 (VPN 클라이언트에 할당할 ip 대역)
-	 - VPN_NETMASK=255.255.255.0 (vpn 클라이언트에 할당할 subnet mask)
-	 - LAN_NETWORK=192.168.0.0 (vpn 예외 네트워크 ip 대역)
-	 - LAN_NETMASK=255.255.0.0 (vpn 예외 네트워크 subnet mask)
-	 - VPN_USERNAME=vpnuser (vpn 클라이언트에서 로그인 ID, 추가 생성 가능)
-	 - VPN_PASSWORD=PassW@rd (vpn 클라이언트 로그인 비밀번호, 인증서의 비밀번호로도 사용됨, 추가 생성 가능)
+     - VPN_DOMAIN=ocserv
+     - VPN_NETWORK=10.20.30.0 (VPN 클라이언트에 할당할 ip 대역)
+     - VPN_NETMASK=255.255.255.0 (vpn 클라이언트에 할당할 subnet mask)
+     - LAN_NETWORK=192.168.0.0 (vpn 예외 네트워크 ip 대역)
+     - LAN_NETMASK=255.255.0.0 (vpn 예외 네트워크 subnet mask)
+     - VPN_USERNAME=vpnuser (vpn 클라이언트에서 로그인 ID, 추가 생성 가능)
+     - VPN_PASSWORD=PassW@rd (vpn 클라이언트 로그인 비밀번호, 인증서의 비밀번호로도 사용됨, 추가 생성 가능)
     cap_add:
-	 - NET_ADMIN
+     - NET_ADMIN
 ```
 
 **ports:**  
@@ -104,13 +104,13 @@ docker-compose.yml 파일에 cap_add를 빼고 privileged: true를 추가하면 
      - 443:443/tcp
      - 443:443/udp
     environment:
-	 - VPN_DOMAIN=ocserv
-	 - VPN_NETWORK=10.20.30.0
-	 - VPN_NETMASK=255.255.255.0
-	 - LAN_NETWORK=192.168.0.0
-	 - LAN_NETMASK=255.255.0.0
-	 - VPN_USERNAME=vpnuser
-	 - VPN_PASSWORD=PassW@rd
+     - VPN_DOMAIN=ocserv
+     - VPN_NETWORK=10.20.30.0
+     - VPN_NETMASK=255.255.255.0
+     - LAN_NETWORK=192.168.0.0
+     - LAN_NETMASK=255.255.0.0
+     - VPN_USERNAME=vpnuser
+     - VPN_PASSWORD=PassW@rd
 ```
 
 ### 실행  
