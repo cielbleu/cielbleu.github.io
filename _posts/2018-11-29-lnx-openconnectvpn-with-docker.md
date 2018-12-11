@@ -149,9 +149,9 @@ $ cd ~/docker
 $ mkdir vpn_cert
 $ docker cp ocserv:/etc/ocserv/certs/client.p12 vpn_cert (ocserv 컨테이너의 /etc/ocserv/certs/client.p12 파일을 /home/자신의 계정/docker/vpn_cert/ 디렉토리에 복사)
 ```
-3. client.p12 파일을 서버에서 자신의 PC로 복사하거나 서버에서 직접 자신의 이메일로 Client.12를 보냅니다. (SCP를 사용해 복사하면 편리합니다)  
-4. Client.p12 파일을 자신의 이메일로 보냅니다.  
-5. 스마트폰에서 자신의 이메일에 접속한 후 Client.p12 파일을 다운로드 받습니다.  
+3. client.p12 파일을 서버에서 자신의 PC로 복사하거나 서버에서 직접 자신의 이메일로 client.12를 보냅니다. (SCP를 사용해 복사하면 편리합니다)  
+4. client.p12 파일을 자신의 이메일로 보냅니다.  
+5. 스마트폰에서 자신의 이메일에 접속한 후 client.p12 파일을 다운로드 받습니다.  
 6. 스마트폰에 인증서를 설치합니다.  
 7. `AnyConnect 앱 → 진단 → 인증서 관리 → 가져오기`를 선택해 인증서를 가져옵니다.  
 
