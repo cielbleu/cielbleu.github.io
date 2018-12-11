@@ -141,7 +141,7 @@ AnyConnect 앱을 사용해 OpenConnect SSL VPN 서버에 접속하는 방법은
 **인증서 방식**  
 인증서 방식으로 사용하기 위해서는 OpenConnect SSL VPN 서버에서 인증서를 발급받아 AnyConnect 앱에 설치해야 합니다.  
 
-아래의 순서대로 인증서를 발급 받아 AnyConnect 앱에 인증서를 설치하세요.  
+아래의 순서대로 인증서를 발급받아 AnyConnect 앱에 인증서를 설치하세요.  
 1. Docker 컨테이너(OCServ)를 실행하고 있는 서버에 SSH로 접속합니다.  
 2. 다음의 명령어를 입력해 Docker 컨테이너(OCServ)로부터 인증서 발급 및 복사합니다.  
 ```bash
