@@ -56,7 +56,7 @@ $ vim docker-compose.yml
     restart: always
     ports:
      - 443(외부에 공개할 포트):443/tcp
-	 - 443:443/udp
+     - 443:443/udp
     environment:
 	 - VPN_DOMAIN=ocserv
 	 - VPN_NETWORK=10.20.30.0 (VPN 클라이언트에 할당할 ip 대역)
@@ -102,7 +102,7 @@ docker-compose.yml 파일에 cap_add를 빼고 privileged: true를 추가하면 
     privileged: true
     ports:
      - 443:443/tcp
-	 - 443:443/udp
+     - 443:443/udp
     environment:
 	 - VPN_DOMAIN=ocserv
 	 - VPN_NETWORK=10.20.30.0
