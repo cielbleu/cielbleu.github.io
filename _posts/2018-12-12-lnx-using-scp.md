@@ -74,9 +74,11 @@ WinSCP.exe를 실행하면 로그인할 서버를 선택하는 사이트 관리�
 ### 접속  
 처음 접속하면 이 서버를 신뢰할 것인지 묻는 경고창이 반겨줍니다.  
 ![WinSCP #4](/assets/images/WinSCP_4.png)
+  
 `예` 버튼을 누르고 계속 진행합니다.  
 사용자 이름과 비밀번호를 입력합니다.  
 ![WinSCP #5](/assets/images/WinSCP_5.png)
+  
 정상적으로 접속이 되면 내 PC와 원격지 Linux 서버 간에 파일을 주고받을 수 있습니다. (Drag & Drop)  
 ![WinSCP #6](/assets/images/WinSCP_6.png)
   
