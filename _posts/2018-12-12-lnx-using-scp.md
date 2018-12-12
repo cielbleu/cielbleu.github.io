@@ -76,6 +76,7 @@ WinSCP.exe를 실행하면 로그인할 서버를 선택하는 사이트 관리�
 ![WinSCP #4](/assets/images/WinSCP_4.png)
   
 `예` 버튼을 누르고 계속 진행합니다.  
+  
 사용자 이름과 비밀번호를 입력합니다.  
 ![WinSCP #5](/assets/images/WinSCP_5.png)
   
