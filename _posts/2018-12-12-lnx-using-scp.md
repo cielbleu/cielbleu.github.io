@@ -41,7 +41,7 @@ SCP는 SSH(Secure Shell) 프로토콜 기반으로 동작하기 때문에 SSH �
 Windows 환경에서 SSH 접속을 위해 [putty](https://www.putty.org/)를 사용하고 있다면 SCP 클라이언트로 사용할 수 있는 pscp.exe가 같이 설치되어 있을 것입니다.  
 다만 pscp.exe는 명령줄 인터페이스만 제공하므로 사용하기가 어렵습니다.  
   
-이 포스트에서는 Windows용 GUI를 제공하면서 Free SCP 클라이언트인 [WinSCP](https://winscp.net/eng/docs/lang:ko)를 사용하였습니다. 특히 한국어 언어팩을 제공하기 때문에 추천하지 않을 이유가 하나도 없는 클라이언트입니다.  
+이 포스트에서는 Windows용 GUI를 제공하면서 Free SCP 클라이언트인 [WinSCP](https://winscp.net/eng/docs/lang:ko)를 사용하였습니다. 특히 한국어 언어팩을 제공하기 때문에 추천하지 않을 이유가 하나도 없는 소프트웨어입니다.  
   
 우선 [WinSCP 다운로드 페이지](https://winscp.net/eng/download.php)에 접속하여 소프트웨어를 다운로드 받습니다.  
 설치하지 않고 사용할 수 있는 Portable용 다운로드도 제공하고 있으니 참고하세요. (이 포스트에서는 Portable용을 다운로드 받아 사용하였습니다)  
