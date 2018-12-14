@@ -2,7 +2,7 @@
 title: "Docker로 Samba Server 설치하기"
 description: "Docker를 사용하여 Samba Server를 설치하는 방법 정리"
 category: Linux
-tags: [Linux, Docker, Samba]
+tags: [Linux, Docker, Samba, 리눅스, 도커, 삼바]
 toc: true
 toc_sticky: true
 ---
