@@ -2,7 +2,7 @@
 title: "Linux 서버와 파일 주고받기"
 description: "SCP를 이용하여 Linux 서버와 파일을 주고받는 방법 정리"
 category: Linux
-tags: [Linux, SSH, SCP, 리눅스]
+tags: [Linux, SSH, SCP, 리눅스, 파일 복사]
 toc: true
 toc_sticky: true
 ---
