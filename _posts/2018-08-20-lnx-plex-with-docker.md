@@ -2,7 +2,7 @@
 title: "Docker로 Plex Media Server 설치하기"
 description: "Docker를 사용하여 Plex Media Server를 설치하는 방법 정리"
 category: Linux
-tags: [Linux, Docker, Plex]
+tags: [Linux, Docker, Plex, ]
 toc: true
 toc_sticky: true
 ---
