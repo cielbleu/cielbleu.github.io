@@ -2,7 +2,7 @@
 title: "Docker로 PostgreSQL 및 pgAdmin 설치하기"
 description: "Docker를 사용하여 PostgreSQL 및 pgAdmin을 설치하는 방법 정리"
 category: Linux
-tags: [Linux, Docker, PostgreSQL, pgAdmin]
+tags: [Linux, Docker, PostgreSQL, pgAdmin, 리눅스, 도커]
 toc: true
 toc_sticky: true
 ---
