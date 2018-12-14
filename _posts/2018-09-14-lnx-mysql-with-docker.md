@@ -2,7 +2,7 @@
 title: "Docker로 Mysql 설치하기"
 description: "Docker를 사용하여 Mysql을 설치하는 방법 정리"
 category: Linux
-tags: [Linux, Docker, Mysql]
+tags: [Linux, Docker, Mysql, 리눅스, 도커]
 toc: true
 toc_sticky: true
 ---
