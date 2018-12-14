@@ -2,7 +2,7 @@
 title: "Docker로 OpenConnect SSL VPN 서버 구축하기"
 description: "Docker를 사용하여 OpenConnect SSL VPN 서버를 구축하는 방법 정리"
 category: Linux
-tags: [Linux, Docker, VPN, OpenConnect]
+tags: [Linux, Docker, VPN, OpenConnect, 리눅스, 도커]
 toc: true
 toc_sticky: true
 ---
