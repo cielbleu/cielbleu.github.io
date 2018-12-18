@@ -20,7 +20,7 @@ title                    : "Simple is the best"
 title_separator          : "-"
 name                     : "Jefferson Ryu"
 description              : "Blog"
-url                      : "https://cielbleu.github.io" # the base hostname & protocol for your site e.g.
+url                      : "https://blog.knowledgebox.online" # the base hostname & protocol for your site e.g.
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "cielbleu/cielbleu.github.io" # GitHub username/repo-name e.g.
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
