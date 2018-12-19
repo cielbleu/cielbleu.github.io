@@ -5,8 +5,8 @@ category: Linux
 tags: [Linux, SSH, SCP, 리눅스, 파일 복사]
 toc: true
 toc_sticky: true
-date: 2018-12-12 12:00:00
-lastmod: 2018-12-19 12:00:00
+date: 2018-12-12 00:00:00
+lastmod: 2018-12-19 00:00:00
 sitemap:
   changefreq: daily
 ---
