@@ -5,6 +5,10 @@ category: Linux
 tags: [Linux, Docker, VPN, OpenConnect, 리눅스, 도커]
 toc: true
 toc_sticky: true
+date: 2018-11-29 00:00:00
+lastmod: 2018-12-19 00:00:00
+sitemap:
+  changefreq: daily
 ---
 
 [Archlinux](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [OpenConnect SSL VPN](https://ocserv.gitlab.io/www/index.html) 서버를 구축하는 방법에 대한 정리입니다.  
