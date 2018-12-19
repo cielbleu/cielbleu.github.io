@@ -5,6 +5,10 @@ category: Linux
 tags: [Linux, Docker, Plex, 리눅스, 도커]
 toc: true
 toc_sticky: true
+date: 2018-08-20 00:00:00
+lastmod: 2018-12-19 00:00:00
+sitemap:
+  changefreq: daily
 ---
 
 [Archlinux](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [Plex Media Server](https://www.plex.tv/)를 설치하는 방법에 대한 정리입니다.  
