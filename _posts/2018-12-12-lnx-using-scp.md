@@ -5,6 +5,10 @@ category: Linux
 tags: [Linux, SSH, SCP, 리눅스, 파일 복사]
 toc: true
 toc_sticky: true
+date: 2018-12-12 12:00:00
+lastmod: 2018-12-19 12:00:00
+sitemap:
+  changefreq: daily
 ---
 
 SSH로 접속한 원격지 Linux 서버와 파일을 주고받는 방법에 대한 정리입니다.  
