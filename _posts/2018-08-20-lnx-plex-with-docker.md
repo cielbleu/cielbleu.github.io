@@ -5,7 +5,7 @@ category: Linux
 tags: [Linux, Docker, Plex, 리눅스, 도커]
 toc: true
 toc_sticky: true
-date: 2018-08-19 00:00:00
+date: 2018-08-20 00:00:00
 lastmod: 2018-12-19 00:00:00
 sitemap:
   changefreq: daily
