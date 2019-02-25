@@ -37,6 +37,7 @@ RAID는 Redundant Array Inexpensive Disk 또는 Redundant Array Independant Disk
   
 일반적으로 기업에서는 고가용성을 위해 HDD 3개로 RAID 1 with spare를 많이 사용합니다.  
 서버의 로컬디스크에는 OS 및 소프트웨어만 설치하고 데이터는 대부분 SAN이나 iSCSI 같은 별도 Storage를 연결하여 사용합니다.  
+  
 참고로 RAID는 무정지 시스템을 위해 사용하는 것이지 데이터 백업을 위한 것이 아닙니다. RAID 1로 미러링을 구성했다고 하더라도 랜섬웨어나 바이러스로 인해 데이터가 날아가면 백업 이외에는 방법이 없습니다.  
   
 하지만 가정에서 대용량 데이터를 백업하기 위해 장비를 구성하는 비용도 만만치 않기 때문에, 개인서버에 Software RAID를 구성해서 최소한 HDD 고장으로 인한 데이터 유실은 어느 정도 방지하는 것도 좋은 방법입니다.  
