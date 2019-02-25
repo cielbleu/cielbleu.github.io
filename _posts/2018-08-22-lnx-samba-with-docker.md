@@ -18,22 +18,22 @@ sitemap:
 
 # Docker로 Samba Server 설치하기  
 
-[이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)에 이어 이번 포스트에서는 Docker를 사용하여 Samba Server를 설치하는 방법에 대해서 간략히 정리하였습니다.  
+[이전 포스트](https://blog.knowledgebox.online/linux/lnx-plex-with-docker)에 이어 이번 포스트에서는 Docker를 사용하여 Samba Server를 설치하는 방법에 대해서 간략히 정리하였습니다.  
 
 ## 1. Docker 설치  
 
-[이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)에서 Docker를 어떻게 설치하는지 정리했습니다.  
-아직 Docker를 설치하지 않았다면 [이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)를 참고하여 먼저 Docker를 설치하세요.  
+[이전 포스트](https://blog.knowledgebox.online/linux/lnx-plex-with-docker)에서 Docker를 어떻게 설치하는지 정리했습니다.  
+아직 Docker를 설치하지 않았다면 [이전 포스트](https://blog.knowledgebox.online/linux/lnx-plex-with-docker)를 참고하여 먼저 Docker를 설치하세요.  
 
 
 
 ## 2. Docker로 Samba Server 실행하기  
 
-[이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)와 마찬가지로 Samba 컨테이너 역시 docker-compose를 사용해 실행합니다.  
+[이전 포스트](https://blog.knowledgebox.online/linux/lnx-plex-with-docker)와 마찬가지로 Samba 컨테이너 역시 docker-compose를 사용해 실행합니다.  
 
 ### 설정  
 
-[이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)에서 docker-compose용 YAML 설정 파일과 Plex Media Server의 설정을 Host PC에 저장하기 위해 홈디렉토리에 docker 디렉토리 및 하위 디렉토리를 생성하였습니다.  
+[이전 포스트](https://blog.knowledgebox.online/linux/lnx-plex-with-docker)에서 docker-compose용 YAML 설정 파일과 Plex Media Server의 설정을 Host PC에 저장하기 위해 홈디렉토리에 docker 디렉토리 및 하위 디렉토리를 생성하였습니다.  
 이번 포스트의 Samba Server 컨테이너도 설정 및 데이터를 Host PC에 저장하기 위해 Host PC에 디렉토리를 아래와 같이 생성합니다.  
 ```bash
 $ cd ~/docker
