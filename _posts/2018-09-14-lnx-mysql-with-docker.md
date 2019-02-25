@@ -25,31 +25,31 @@ sitemap:
 
 ## 1. Docker 설치  
 
-[이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)에서 Docker를 어떻게 설치하는지 정리했습니다.  
-아직 Docker를 설치하지 않았다면 [이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)를 참고하여 먼저 Docker를 설치하세요.  
+[이전 포스트](https://blog.knowledgebox.online/linux/lnx-plex-with-docker)에서 Docker를 어떻게 설치하는지 정리했습니다.  
+아직 Docker를 설치하지 않았다면 [이전 포스트](https://blog.knowledgebox.online/linux/lnx-plex-with-docker)를 참고하여 먼저 Docker를 설치하세요.  
 
 
 
 ## 2. Docker로 Mysql 실행하기  
 
-[이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)와 마찬가지로 Mysql 컨테이너 역시 docker-compose를 사용해 실행합니다.  
+[이전 포스트](https://blog.knowledgebox.online/linux/lnx-plex-with-docker)와 마찬가지로 Mysql 컨테이너 역시 docker-compose를 사용해 실행합니다.  
 
 ### 설정  
 
-[이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)에서 docker-compose용 YAML 설정 파일과 Plex Media Server의 설정을 Host PC에 저장하기 위해 홈디렉토리에 docker 디렉토리 및 하위 디렉토리를 생성하였습니다.  
+[이전 포스트](https://blog.knowledgebox.online/linux/lnx-plex-with-docker)에서 docker-compose용 YAML 설정 파일과 Plex Media Server의 설정을 Host PC에 저장하기 위해 홈디렉토리에 docker 디렉토리 및 하위 디렉토리를 생성하였습니다.  
 이번 포스트의 Mysql 컨테이너도 설정 및 데이터를 Host PC에 저장하기 위해 Host PC에 디렉토리를 아래와 같이 생성합니다.  
 ```bash
-$ cd ~/docker
-$ mkdir mysql
-$ mkdir mysql/config
-$ mkdir mysql/data
+[계정@localhost ~]$ > cd ~/docker
+[계정@localhost ~/docker]$ > mkdir mysql
+[계정@localhost ~/docker]$ > mkdir mysql/config
+[계정@localhost ~/docker]$ > mkdir mysql/data
 ```
 
 docker-compose.yml 파일에 다음과 같이 추가합니다.  
 자신의 환경에 맞게 수정하세요.  
 ```bash
-$ cd ~/docker
-$ vim docker-compose.yml
+[계정@localhost ~]$ > cd ~/docker
+[계정@localhost ~/docker]$ > vim docker-compose.yml
 ```
 
 ```yml
@@ -165,8 +165,8 @@ Host PC의 uid와 gid는 각자의 환경에 따라 다르므로 이 포스트�
 
 docker-compose.yml 파일을 생성한 후 다음과 같은 명령어로 컨테이너를 실행합니다.  
 ```bash
-$ cd ~/docker
-$ docker-compose up -d mysql
+[계정@localhost ~]$ > cd ~/docker
+[계정@localhost ~/docker]$ > docker-compose up -d mysql
 ```
 
 docker-compose.yml에서 mysql이라는 이름을 가진 컨테이너를 백그라운드(-d)로 실행(up)하라는 의미입니다.  
