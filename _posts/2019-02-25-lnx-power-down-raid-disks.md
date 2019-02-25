@@ -69,10 +69,12 @@ hdparm v9.58
 ```
   
   
-## 3. raid-sleep 다운로드  
+## 3. raid-sleep  
+
+### 다운로드  
 
 [GitHub](https://github.com/thomask77/raid-sleep)에 접속하여 raid-sleep을 다운로드 받습니다.  
-`Clone or download` 버튼을 클릭하여 `Download ZIP`을 클릭하세요.  
+`Clone or download` 버튼을 클릭한 후 `Download ZIP` 버튼을 클릭하세요.  
 다운로드 후 [이전 포스트](https://blog.knowledgebox.online/linux/lnx-using-scp/)를 참고하여 개인서버에 다운로드 받은 파일을 업로드 하세요.  
 서버에 Git이 설치되어 있다면 `git clone https://github.com/thomask77/raid-sleep.git`로 다운로드 받는 것이 가장 빠르고 간편합니다.  
 ```bash
