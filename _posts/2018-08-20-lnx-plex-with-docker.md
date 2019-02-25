@@ -34,28 +34,28 @@ Windows 또는 Mac에서는 Docker for Windows 또는 Docker for Mac을 설치�
 
 - ArchLinux
 ```bash
-$ sudo pacman -Syu docker docker-compose
+[계정@localhost ~]$ > sudo pacman -Syu docker docker-compose
 ```
 
 - Ubuntu
 ```bash
-$ sudo apt install docker docker-compose
+[계정@localhost ~]$ > sudo apt install docker docker-compose
 ```
 
 
 조금 더 편하게 Docker를 사용하기 위해 현재 로그인한 사용자를 docker 그룹에 넣어줍니다.  
 ```bash
-$ sudo usermod -aG docker $USER
+[계정@localhost ~]$ > sudo usermod -aG docker $USER
 ```
 
 
 재부팅시 자동으로 실행되도록 서비스를 등록합니다.  
 - ArchLinux
 ```bash
-$ sudo systemctl enable docker.service //서비스 활성화
-$ sudo systemctl start docker.service //서비스 시작
-$ docker info //서비스 확인
-$ docker version //Docker 클라이언트 및 서버 정보 확인
+[계정@localhost ~]$ > sudo systemctl enable docker.service //서비스 활성화
+[계정@localhost ~]$ > sudo systemctl start docker.service //서비스 시작
+[계정@localhost ~]$ > docker info //서비스 확인
+[계정@localhost ~]$ > docker version //Docker 클라이언트 및 서버 정보 확인
 ```
 
 
@@ -70,19 +70,19 @@ Docker로 컨테이너를 실행하는 간단한 방법은 터미널에서 docke
 
 우선 홈디렉토리에 Docker 및 Plex Media Server의 설정을 저장할 디렉토리를 아래와 같이 생성합니다.  
 ```bash
-$ mkdir ~/docker
-$ cd docker
-$ mkdir plex
-$ cd plex
-$ mkdir config
+[계정@localhost ~]$ > mkdir ~/docker
+[계정@localhost ~]$ > cd docker
+[계정@localhost ~/docker]$ > mkdir plex
+[계정@localhost ~/docker]$ > cd plex
+[계정@localhost ~/docker/plex]$ > mkdir config
 ```
 
 
 docker-compose.yml 파일을 다음과 같이 생성합니다.  
 자신의 환경에 맞게 수정하세요.  
 ```bash
-$ cd ~/docker
-$ vim docker-compose.yml
+[계정@localhost ~]$ > cd ~/docker
+[계정@localhost ~/docker]$ > vim docker-compose.yml
 ```
 
 ```yml
@@ -143,8 +143,8 @@ environment에서 중요한 항목은 `PLEX_CLAIM`과 `ADVERTISE_IP`입니다.
 
 docker-compose.yml 파일을 생성한 후 다음과 같은 명령어로 컨테이너를 실행합니다.  
 ```bash
-$ cd ~/docker
-$ docker-compose up -d plex
+[계정@localhost ~]$ > cd ~/docker
+[계정@localhost ~/docker]$ > docker-compose up -d plex
 ```
 
 docker-compose.yml에서 plex라는 이름을 가진 컨테이너를 백그라운드(-d)로 실행(up)하라는 의미입니다.  
