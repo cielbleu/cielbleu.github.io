@@ -36,15 +36,15 @@ sitemap:
 [이전 포스트](https://blog.knowledgebox.online/linux/lnx-plex-with-docker)에서 docker-compose용 YAML 설정 파일과 Plex Media Server의 설정을 Host PC에 저장하기 위해 홈디렉토리에 docker 디렉토리 및 하위 디렉토리를 생성하였습니다.  
 이번 포스트의 Samba Server 컨테이너도 설정 및 데이터를 Host PC에 저장하기 위해 Host PC에 디렉토리를 아래와 같이 생성합니다.  
 ```bash
-$ cd ~/docker
-$ mkdir samba
+[계정@localhost ~]$ > cd ~/docker
+[계정@localhost ~/docker]$ > mkdir samba
 ```
 
 docker-compose.yml 파일에 다음과 같이 추가합니다.  
 자신의 환경에 맞게 수정하세요.  
 ```bash
-$ cd ~/docker
-$ vim docker-compose.yml
+[계정@localhost ~]$ > cd ~/docker
+[계정@localhost ~/docker]$ > vim docker-compose.yml
 ```
 
 ```yml
@@ -104,8 +104,8 @@ Docker 컨테이너(Samba Server)의 환경변수를 설정하기 위한 항목�
 
 docker-compose.yml 파일을 수정한 후 다음과 같은 명령어로 컨테이너를 실행합니다.
 ```bash
-$ cd ~/docker
-$ docker-compose up -d samba
+[계정@localhost ~]$ > cd ~/docker
+[계정@localhost ~/docker]$ > docker-compose up -d samba
 ```
 
 docker-compose.yml에서 samba라는 이름을 가진 컨테이너를 백그라운드(-d)로 실행(up)하라는 의미입니다.  
