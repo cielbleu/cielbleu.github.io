@@ -39,17 +39,17 @@ sitemap:
 [이전 포스트](https://blog.knowledgebox.online/linux/lnx-plex-with-docker)에서 docker-compose용 YAML 설정 파일과 Plex Media Server의 설정을 Host PC에 저장하기 위해 홈디렉토리에 docker 디렉토리 및 하위 디렉토리를 생성하였습니다.  
 이번 포스트의 PostgreSQL 컨테이너도 설정 및 데이터를 Host PC에 저장하기 위해 Host PC에 디렉토리를 아래와 같이 생성합니다.  
 ```bash
-$ cd ~/docker
-$ mkdir pgsql
-$ mkdir pgsql/config
-$ mkdir pgsql/pgdata
+[계정@localhost ~]$ > cd ~/docker
+[계정@localhost ~/docker]$ > mkdir pgsql
+[계정@localhost ~/docker]$ > mkdir pgsql/config
+[계정@localhost ~/docker]$ > mkdir pgsql/pgdata
 ```
 
 docker-compose.yml 파일에 다음과 같이 추가합니다.  
 자신의 환경에 맞게 수정하세요.  
 ```bash
-$ cd ~/docker
-$ vim docker-compose.yml
+[계정@localhost ~]$ > cd ~/docker
+[계정@localhost ~/docker]$ > vim docker-compose.yml
 ```
 
 ```yml
@@ -164,8 +164,8 @@ Host PC의 uid와 gid는 각자의 환경에 따라 다르므로 이 포스트�
 
 docker-compose.yml 파일을 생성한 후 다음과 같은 명령어로 컨테이너를 실행합니다.  
 ```bash
-$ cd ~/docker
-$ docker-compose up -d postgres
+[계정@localhost ~]$ > cd ~/docker
+[계정@localhost ~/docker]$ > docker-compose up -d postgres
 ```
 
 docker-compose.yml에서 postgres라는 이름을 가진 컨테이너를 백그라운드(-d)로 실행(up)하라는 의미입니다.  
@@ -186,8 +186,8 @@ pgAdmin은 딱히 Host PC의 디렉토리와 연결해서 사용할 필요가 �
 docker-compose.yml 파일에 다음과 같이 추가합니다.  
 자신의 환경에 맞게 수정하세요.  
 ```bash
-$ cd ~/docker
-$ vim docker-compose.yml
+[계정@localhost ~]$ > cd ~/docker
+[계정@localhost ~/docker]$ > vim docker-compose.yml
 ```
 
 ```yml
@@ -220,8 +220,8 @@ Docker 컨테이너(pgAdmin)의 환경변수를 설정하기 위한 항목입니
 
 docker-compose.yml 파일을 생성한 후 다음과 같은 명령어로 컨테이너를 실행합니다.  
 ```bash
-$ cd ~/docker
-$ docker-compose up -d pgadmin
+[계정@localhost ~]$ > cd ~/docker
+[계정@localhost ~/docker]$ > docker-compose up -d pgadmin
 ```
 
 docker-compose.yml에서 pgadmin이라는 이름을 가진 컨테이너를 백그라운드(-d)로 실행(up)하라는 의미입니다.  
