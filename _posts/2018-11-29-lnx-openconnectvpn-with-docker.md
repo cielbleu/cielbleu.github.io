@@ -32,25 +32,25 @@ sitemap:
 
 ## 1. Docker 설치  
 
-[이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)에서 Docker를 어떻게 설치하는지 정리했습니다.  
-아직 Docker를 설치하지 않았다면 [이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)를 참고하여 먼저 Docker를 설치하세요.  
+[이전 포스트](https://blog.knowledgebox.online/linux/lnx-plex-with-docker)에서 Docker를 어떻게 설치하는지 정리했습니다.  
+아직 Docker를 설치하지 않았다면 [이전 포스트](https://blog.knowledgebox.online/linux/lnx-plex-with-docker)를 참고하여 먼저 Docker를 설치하세요.  
 
 
 
 ## 2. Docker로 OpenConnect SSL VPN 서버 실행하기  
 
-[이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)와 마찬가지로 OpenConnect SSL VPN 컨테이너 역시 docker-compose를 사용해 실행합니다.  
+[이전 포스트](https://blog.knowledgebox.online/linux/lnx-plex-with-docker)와 마찬가지로 OpenConnect SSL VPN 컨테이너 역시 docker-compose를 사용해 실행합니다.  
 
 ### 설정  
 
-[이전 포스트](https://cielbleu.github.io/linux/lnx-plex-with-docker)에서 docker-compose용 YAML 설정 파일과 Plex Media Server의 설정을 Host PC에 저장하기 위해 홈디렉토리에 docker 디렉토리 및 하위 디렉토리를 생성하였습니다.  
+[이전 포스트](https://blog.knowledgebox.online/linux/lnx-plex-with-docker)에서 docker-compose용 YAML 설정 파일과 Plex Media Server의 설정을 Host PC에 저장하기 위해 홈디렉토리에 docker 디렉토리 및 하위 디렉토리를 생성하였습니다.  
 이번 포스트의 OpenConnect SSL VPN 서버 컨테이너는 설정 및 데이터를 Host PC에 저장할 필요가 없기 때문에 Host PC에 디렉토리를 생성하지는 않습니다.  
   
 docker-compose.yml 파일에 다음과 같이 추가합니다.  
 자신의 환경에 맞게 수정하세요.  
 ```bash
-$ cd ~/docker
-$ vim docker-compose.yml
+[계정@localhost ~]$ > cd ~/docker
+[계정@localhost ~/docker]$ > vim docker-compose.yml
 ```
 
 ```yml
@@ -121,8 +121,8 @@ docker-compose.yml 파일에 cap_add를 빼고 privileged: true를 추가하면 
 
 docker-compose.yml 파일을 생성한 후 다음과 같은 명령어로 컨테이너를 실행합니다.  
 ```bash
-$ cd ~/docker
-$ docker-compose up -d ocserv
+[계정@localhost ~]$ > cd ~/docker
+[계정@localhost ~/docker]$ > docker-compose up -d ocserv
 ```
 
 docker-compose.yml에서 ocserv라는 이름을 가진 컨테이너를 백그라운드(-d)로 실행(up)하라는 의미입니다.  
@@ -149,9 +149,9 @@ AnyConnect 앱을 사용해 OpenConnect SSL VPN 서버에 접속하는 방법은
 1. Docker 컨테이너(OCServ)를 실행하고 있는 Host PC에 SSH로 접속합니다.  
 2. 다음의 명령어를 입력해 Docker 컨테이너(OCServ)로부터 인증서를 복사합니다.  
 ```bash
-$ cd ~/docker
-$ mkdir vpn_cert
-$ docker cp ocserv:/etc/ocserv/certs/client.p12 vpn_cert (ocserv 컨테이너의 /etc/ocserv/certs/client.p12 파일을 /home/자신의 계정/docker/vpn_cert/ 디렉토리에 복사)
+[계정@localhost ~]$ > cd ~/docker
+[계정@localhost ~/docker]$ > mkdir vpn_cert
+[계정@localhost ~/docker]$ > docker cp ocserv:/etc/ocserv/certs/client.p12 vpn_cert (ocserv 컨테이너의 /etc/ocserv/certs/client.p12 파일을 /home/자신의 계정/docker/vpn_cert/ 디렉토리에 복사)
 ```
 3. client.p12 파일을 Host PC에서 자신의 PC로 복사하거나 Host PC에서 직접 자신의 이메일로 client.p12를 보냅니다. (SCP를 사용해 복사하면 편리합니다)  
 4. client.p12 파일을 자신의 이메일로 보냅니다.  
@@ -166,7 +166,7 @@ ID & PW 방식으로 사용하기 위해서는 Docker 컨테이너(OCServ)로 �
 1. Docker 컨테이너(OCServ)를 실행하고 있는 Host PC에 SSH로 접속합니다.  
 2. 다음의 명령어를 입력해 Docker 컨테이너(OCServ)의 셸을 실행합니다.  
 ```bash
-$ docker exec -it ocserv sh
+[계정@localhost ~/docker]$ > docker exec -it ocserv sh
 ```
 3. Docker 컨테이너(OCServ)의 셸에서 다음의 명령어로 계정을 생성합니다.  
 ```bash
