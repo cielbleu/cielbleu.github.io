@@ -13,8 +13,8 @@ sitemap:
 
 SSH로 접속한 원격지 Linux 서버와 파일을 주고받는 방법에 대한 정리입니다.  
 
-![SSH](/assets/images/Gnome-fs-ssh.svg)
-<img src="/assets/images/Gnome-fs-ssh.svg" width="50%">
+![SSH](/assets/images/Gnome-fs-ssh.svg | width=100%)  
+<img src="/assets/images/Gnome-fs-ssh.svg" width="50%" align="center">  
 
 
 
