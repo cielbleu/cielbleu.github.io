@@ -13,7 +13,7 @@ sitemap:
 
 [Archlinux](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [PostgreSQL](https://www.postgresql.org/) 및 관리 도구인 [pgAdmin](https://www.pgadmin.org/)를 설치하는 방법에 대한 정리입니다.  
 
-![PostgreSQL Logo](/assets/images/postgresql_logo.svg)
+![PostgreSQL Logo](/assets/images/postgresql_logo.svg){:height="50%" width="50%"}  
 
 
 
