@@ -13,7 +13,7 @@ sitemap:
 
 [Archlinux](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [Mysql](https://www.mysql.com/)을 설치하는 방법에 대한 정리입니다.  
 
-![Mysql Logo](/assets/images/mysql_logo.svg)
+![Mysql Logo](/assets/images/mysql_logo.svg){:height="50%" width="50%"}  
 
 
 
