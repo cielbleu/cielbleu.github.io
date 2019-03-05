@@ -13,7 +13,7 @@ sitemap:
 
 [Archlinux](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [OpenConnect SSL VPN](https://ocserv.gitlab.io/www/index.html) 서버를 구축하는 방법에 대한 정리입니다.  
 
-![VPN](/assets/images/vpn.svg)
+![VPN](/assets/images/vpn.svg){:height="50%" width="50%"}  
 
 
 
