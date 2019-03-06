@@ -188,3 +188,39 @@ DNSZi 계정과 인증키, 개인도메인 부분을 자신의 상황에 맞게 
  OnCalendar = *-*-* *:0/15:00
  Unit = myService.service
 ```
+  
+### Systemd 서비스 등록  
+
+`.timer`와 `.service` 파일을 생성했지만 실제로 동작하지는 않습니다.  
+실제로 동작하도록 하기 위해서 Systemd에 `활성화(enable)`하고 `시작(start)`해줘야 합니다.  
+
+```bash
+//활성화
+[계정@localhost ~]$ > sudo systemctl enable public_ip_check.timer
+
+//시작
+[계정@localhost ~]$ > sudo systemctl start public_ip_check.timer
+
+//등록된 모든 타이머 확인
+[계정@localhost ~]$ > sudo systemctl list-timers --all
+NEXT                         LEFT          LAST                         PASSED       UNIT                         ACTIV>
+Wed 2019-03-06 18:15:00 KST  14min left    Wed 2019-03-06 18:00:20 KST  19s ago      public_ip_check.timer        publi>
+Thu 2019-03-07 00:00:00 KST  5h 59min left Wed 2019-03-06 00:00:07 KST  18h ago      logrotate.timer              logro>
+Thu 2019-03-07 00:00:00 KST  5h 59min left Wed 2019-03-06 15:27:32 KST  2h 33min ago man-db.timer                 man-d>
+Thu 2019-03-07 00:00:00 KST  5h 59min left Wed 2019-03-06 00:00:07 KST  18h ago      shadow.timer                 shado>
+Thu 2019-03-07 17:54:23 KST  23h left      Wed 2019-03-06 17:54:23 KST  6min ago     systemd-tmpfiles-clean.timer syste>
+Mon 2019-03-11 00:00:00 KST  4 days left   Mon 2019-03-04 00:00:07 KST  2 days ago   fstrim.timer                 fstri>
+n/a                          n/a           n/a                          n/a          mdadm-last-resort@md0.timer  mdadm>
+
+7 timers listed.
+lines 1-10/10 (END)
+
+//상태 확인
+[계정@localhost ~]$ > sudo systemctl status public_ip_check.timer
+● public_ip_check.timer - Run public_ip_check.service every 15 minutes
+   Loaded: loaded (/etc/systemd/system/public_ip_check.timer; enabled; vendor preset: disabled)
+   Active: active (waiting) since Wed 2019-03-06 17:39:09 KST; 9min ago
+  Trigger: Wed 2019-03-06 18:00:00 KST; 10min left
+
+ 3월 06 17:39:09 DataHub systemd[1]: Started Run public_ip_check.service every 15 minutes.
+```
