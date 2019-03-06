@@ -53,7 +53,7 @@ Linux 서버에서 Software RAID는 mdadm을 사용하여 구성하세요.
 3. hdparm >= 9.43  
   
 이 포스트에서 사용한 운영체제는 Arch Linux이지만 다른 배포판도 아무런 문제 없이 사용할 수 있습니다.  
-단, systemd 기반이므로 systemd 기반이 아닌 Linux 배포판에서는 사용이 어려울 수 있습니다.  
+단, Systemd 기반이므로 Systemd 기반이 아닌 Linux 배포판에서는 사용이 어려울 수 있습니다.  
   
 Python은 대부분의 리눅스 배포판에 기본 설치되는 것이 보통입니다.  
 Python3 버전은 다음과 같이 확인합니다.  
