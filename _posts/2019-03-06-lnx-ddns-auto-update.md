@@ -2,7 +2,7 @@
 title: "DDNS(Dynamic DNS) 자동 업데이트 설정하기"
 description: "Linux 서버에서 DDNS 자동 업데이트 설정하기"
 category: Linux
-tags: [Linux, DDNS, 개인서버]
+tags: [Linux, DDNS, 개인서버, DNSZi]
 toc: true
 toc_sticky: true
 date: 2019-03-06 00:00:00
@@ -50,7 +50,7 @@ Dynamic DNS(DDNS)는 유동적으로 IP가 변동되는 상황에서 서버를 �
   
 도메인을 구입했다면 네임서버를 DDNS 업체에서 제공하는 네임서버로 변경해 줍니다.  
 이 포스트에서는 [DNSZi](https://dnszi.com/)를 사용할 예정이므로 DNSZi에서 제공하는 네임서버로 변경하였습니다.  
-![Name Server](/assets/images/name_server.png)  
+![Name Server](/assets/images/name_server.PNG)  
   
   
 ### DDNS 서비스 가입 및 도메인 등록  
