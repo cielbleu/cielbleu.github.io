@@ -219,8 +219,8 @@ lines 1-10/10 (END)
 [계정@localhost ~]$ > sudo systemctl status public_ip_check.timer
 ● public_ip_check.timer - Run public_ip_check.service every 15 minutes
    Loaded: loaded (/etc/systemd/system/public_ip_check.timer; enabled; vendor preset: disabled)
-   Active: active (waiting) since Wed 2019-03-06 17:39:09 KST; 9min ago
-  Trigger: Wed 2019-03-06 18:00:00 KST; 10min left
+   Active: active (waiting) since Wed 2019-03-06 17:39:09 KST; 21min ago
+  Trigger: Wed 2019-03-06 18:15:00 KST; 14min left
 
  3월 06 17:39:09 DataHub systemd[1]: Started Run public_ip_check.service every 15 minutes.
 ```
