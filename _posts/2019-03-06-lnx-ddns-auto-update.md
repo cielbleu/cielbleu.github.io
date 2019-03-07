@@ -2,7 +2,7 @@
 title: "DDNS(Dynamic DNS) 자동 업데이트 설정하기"
 description: "Linux 서버에서 DDNS 자동 업데이트 설정하기"
 category: Linux
-tags: [Linux, DDNS, 개인서버, DNSZi]
+tags: [Arch, Linux, DDNS, 개인서버, DNSZi]
 toc: true
 toc_sticky: true
 date: 2019-03-06 00:00:00
@@ -11,7 +11,7 @@ sitemap:
   changefreq: daily
 ---
 
-[Archlinux](https://archlinux.org)를 사용하여 구성한 서버에서 DDNS 자동 업데이트를 설정하는 방법에 대한 정리입니다.  
+[Arch Linux](https://archlinux.org)를 사용하여 구성한 서버에서 DDNS 자동 업데이트를 설정하는 방법에 대한 정리입니다.  
 
 ![Arch Linux](/assets/images/arch_linux_logo.svg)
 
