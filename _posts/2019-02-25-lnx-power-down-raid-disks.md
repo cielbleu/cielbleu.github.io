@@ -2,7 +2,7 @@
 title: "Linux 서버 RAID HDD 자동 절전 설정하기"
 description: "Linux 서버에 구성한 RAID HDD의 자동 절전을 설정하는 방법 정리"
 category: Linux
-tags: [Linux, RAID, 절전]
+tags: [Arch, Linux, RAID, 절전]
 toc: true
 toc_sticky: true
 date: 2019-02-25 00:00:00
@@ -11,7 +11,7 @@ sitemap:
   changefreq: daily
 ---
 
-[Archlinux](https://archlinux.org)에서 RAID를 구성한 경우 특정시간 이후 자동 절전 상태로 설정하는 방법에 대한 정리입니다.  
+[Arch Linux](https://archlinux.org)에서 RAID를 구성한 경우 특정시간 이후 자동 절전 상태로 설정하는 방법에 대한 정리입니다.  
 
 ![Arch Linux](/assets/images/arch_linux_logo.svg)
 
