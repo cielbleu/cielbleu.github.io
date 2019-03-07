@@ -2,7 +2,7 @@
 title: "Docker로 PostgreSQL 및 pgAdmin 설치하기"
 description: "Docker를 사용하여 PostgreSQL 및 pgAdmin을 설치하는 방법 정리"
 category: Linux
-tags: [Linux, Docker, PostgreSQL, pgAdmin, 리눅스, 도커]
+tags: [Arch, Linux, Docker, PostgreSQL, pgAdmin, 리눅스, 도커]
 toc: true
 toc_sticky: true
 date: 2018-09-13 00:00:00
@@ -11,7 +11,7 @@ sitemap:
   changefreq: daily
 ---
 
-[Archlinux](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [PostgreSQL](https://www.postgresql.org/) 및 관리 도구인 [pgAdmin](https://www.pgadmin.org/)를 설치하는 방법에 대한 정리입니다.  
+[Arch Linux](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [PostgreSQL](https://www.postgresql.org/) 및 관리 도구인 [pgAdmin](https://www.pgadmin.org/)를 설치하는 방법에 대한 정리입니다.  
 
 ![PostgreSQL Logo](/assets/images/postgresql_logo.svg){:height="50%" width="50%"}  
 
