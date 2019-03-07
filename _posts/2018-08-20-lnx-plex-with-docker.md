@@ -2,7 +2,7 @@
 title: "Docker로 Plex Media Server 설치하기"
 description: "Docker를 사용하여 Plex Media Server를 설치하는 방법 정리"
 category: Linux
-tags: [Linux, Docker, Plex, 리눅스, 도커]
+tags: [Arch, Linux, Docker, Plex, 리눅스, 도커]
 toc: true
 toc_sticky: true
 date: 2018-08-20 00:00:00
@@ -11,7 +11,7 @@ sitemap:
   changefreq: daily
 ---
 
-[Archlinux](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [Plex Media Server](https://www.plex.tv/)를 설치하는 방법에 대한 정리입니다.  
+[Arch Linux](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [Plex Media Server](https://www.plex.tv/)를 설치하는 방법에 대한 정리입니다.  
 
 ![Plex Logo](/assets/images/plex_logo.svg){:height="50%" width="50%"}  
 
@@ -30,9 +30,9 @@ Docker에 대해서 알고 계신가요?
 
 Docker는 기본적으로 Linux에서 동작합니다.  
 Windows 또는 Mac에서는 Docker for Windows 또는 Docker for Mac을 설치하세요.  
-필자는 ArchLinux에서 Docker를 설치하였지만, Docker의 특성상 다른 배포판에서도 간단히 설치할 수 있습니다.  
+필자는 Arch Linux에서 Docker를 설치하였지만, Docker의 특성상 다른 배포판에서도 간단히 설치할 수 있습니다.  
 
-- ArchLinux
+- Arch Linux
 ```bash
 [계정@localhost ~]$ > sudo pacman -Syu docker docker-compose
 ```
@@ -50,7 +50,7 @@ Windows 또는 Mac에서는 Docker for Windows 또는 Docker for Mac을 설치�
 
 
 재부팅시 자동으로 실행되도록 서비스를 등록합니다.  
-- ArchLinux
+- Arch Linux
 ```bash
 [계정@localhost ~]$ > sudo systemctl enable docker.service //서비스 활성화
 [계정@localhost ~]$ > sudo systemctl start docker.service //서비스 시작
