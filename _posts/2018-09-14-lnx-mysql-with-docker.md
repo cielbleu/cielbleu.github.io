@@ -2,7 +2,7 @@
 title: "Docker로 Mysql 설치하기"
 description: "Docker를 사용하여 Mysql을 설치하는 방법 정리"
 category: Linux
-tags: [Linux, Docker, Mysql, 리눅스, 도커]
+tags: [Arch, Linux, Docker, Mysql, 리눅스, 도커]
 toc: true
 toc_sticky: true
 date: 2018-09-14 00:00:00
@@ -11,7 +11,7 @@ sitemap:
   changefreq: daily
 ---
 
-[Archlinux](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [Mysql](https://www.mysql.com/)을 설치하는 방법에 대한 정리입니다.  
+[Arch Linux](https://archlinux.org)에서 [Docker](https://www.docker.com/)를 사용하여 [Mysql](https://www.mysql.com/)을 설치하는 방법에 대한 정리입니다.  
 
 ![Mysql Logo](/assets/images/mysql_logo.svg){:height="50%" width="50%"}  
 
