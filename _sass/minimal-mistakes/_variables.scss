@@ -13,9 +13,9 @@ $paragraph-indent: false !default; // true, false (default)
 $indent-var: 1.3em !default;
 
 /* system typefaces */
-$serif: "본고딕", "Noto Sans CJK KR DemiLight", "Source Han Sans", "Malgun Gothic", "맑은 고딕", Georgia, Times, serif !default;
+$serif: "Noto Sans CJK KR DemiLight", "Malgun Gothic", "맑은 고딕", Georgia, Times, serif !default;
 /*$serif: Georgia, Times, serif !default;*/
-$sans-serif: -apple-system, BlinkMacSystemFont, "본고딕", "Noto Sans CJK KR DemiLight", "Source Han Sans", "Malgun Gothic", "맑은 고딕", "Roboto", "Segoe UI",
+$sans-serif: -apple-system, BlinkMacSystemFont, "Noto Sans CJK KR DemiLight", "Malgun Gothic", "맑은 고딕", "Roboto", "Segoe UI",
   "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
 /*$sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
   "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;*/
