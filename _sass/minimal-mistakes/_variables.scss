@@ -13,13 +13,13 @@ $paragraph-indent: false !default; // true, false (default)
 $indent-var: 1.3em !default;
 
 /* system typefaces */
-$serif: "본고딕", "Noto Sans CJK KR", "Source Han Sans", "Malgun Gothic", "맑은 고딕", Georgia, Times, serif !default;
+$serif: "본고딕", "Noto Sans CJK KR DemiLight", "Source Han Sans", "Malgun Gothic", "맑은 고딕", Georgia, Times, serif !default;
 /*$serif: Georgia, Times, serif !default;*/
-$sans-serif: -apple-system, BlinkMacSystemFont, "본고딕", "Noto Sans CJK KR", "Source Han Sans", "Malgun Gothic", "맑은 고딕", "Roboto", "Segoe UI",
+$sans-serif: -apple-system, BlinkMacSystemFont, "본고딕", "Noto Sans CJK KR DemiLight", "Source Han Sans", "Malgun Gothic", "맑은 고딕", "Roboto", "Segoe UI",
   "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
 /*$sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
   "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;*/
-$monospace: Monaco, D2coding, "D2 Coding", "Noto Sans Mono CJK KR", Consolas, "Lucida Console", monospace !default;
+$monospace: Monaco, D2coding, "D2 Coding", "Noto Sans Mono CJK KR Regular", Consolas, "Lucida Console", monospace !default;
 /*$monospace: Monaco, Consolas, "Lucida Console", monospace !default;*/
 
 /* sans serif typefaces */
