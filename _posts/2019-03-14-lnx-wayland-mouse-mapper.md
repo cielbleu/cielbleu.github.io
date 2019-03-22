@@ -46,20 +46,21 @@ Forward와 Back 버튼이 대표적인데 이것 외에도 감도 조정, 제스
   
 다만 이러한 기능을 100% 사용하려면 Microsoft Windows를 사용해야 한다는 제약사항이 있습니다.  
 Microsoft Windows에서는 제조사에서 제공한 소프트웨어를 설치하면 마우스 버튼의 기능을 변경할 수 있도록 UI를 제공하고 있습니다.  
-![Logitech Option](/assets/images/logitech_option.png){:height="50%" width="50%"}  
+![Logitech Option](/assets/images/logitech_option.png){:height="80%" width="80%"}  
   
 하지만 아쉽게도 Linux용 소프트웨어를 제공하는 제조사는 아직까지 없습니다.  
 대신 몇몇 오픈소스로 제한적으로나마 이러한 기능을 제공하는 [소프트웨어](https://github.com/libratbag/piper)가 있습니다.  
-![Piper](/assets/images/piper_buttonpage.png){:height="50%" width="50%"}  
+![Piper](/assets/images/piper_buttonpage.png){:height="80%" width="80%"}  
 문제는 아직까지는 X Window System 기반으로 동작하고 있기에 Wayland에서는 정상적으로 동작하지 않는 상황입니다.  
   
-필자의 경우 X Window System을 디스플레이 서버로 사용할 때에는 마우스의 특정 버튼을 키보드의 다른 키로(예를 들어 Alt + F4) 매핑하기 위해 xautomation과 xbindkeys를 설치하여 사용했습니다.  
-문제는 xautomation과 xbindkeys 역시 Wayland에서 제대로 동작하지 않는다는 것입니다.  
+필자의 경우 X Window System을 디스플레이 서버로 사용할 때에는 마우스의 특정 버튼을 키보드의 다른 키로(예를 들어 ALT + F4) 매핑하기 위해 xautomation과 xbindkeys를 설치하여 사용했습니다.  
+하지만 xautomation과 xbindkeys 역시 Wayland에서 제대로 동작하지 않는다는 것이 문제입니다.  
   
 다행히 비슷한 문제로 고민을 하는 사람들이 있었고 [mathportillo](https://github.com/mathportillo/wayland-mouse-mapper)라는 GitHub 사용자가 systemd 서비스로 사용할 수 있도록 스크립트를 공개하였습니다.  
   
 다운로드 후 테스트를 해 본 결과 지정한 마우스 버튼 클릭 이벤트 발생시 키보드의 특정 키조합이 발생한 것처럼 넘겨주는 부분이 동작하지 않았습니다. (사실 이 부분이 핵심인데...)  
-systemd 로그를 확인한 결과 지정한 마우스 버튼 클릭시 특정 키조합이 발생은 하지만, 키보드에서 키조합이 발생한 것처럼 넘겨주는 부분이 제대로 동작하지 않았습니다.  
+  
+systemd 로그를 확인한 결과 지정한 마우스 버튼 클릭시 특정 키조합이 발생은 하지만, 키보드에서 키조합이 발생한 것처럼 넘겨주는 부분이 제대로 동작하지 않는다는 것을 알 수 있었습니다.  
   
 필자는 bash 쉘 스크립트나 프로그래밍에 대해 잘 알지 못하기 때문에 이에 대한 원인을 찾지는 못하였고, 스크립트에 키보드 하드웨어 변수로 지정된 부분을 강제로 제 환경에 맞게 지정하는 것으로 마무리를 지었습니다.  
   
