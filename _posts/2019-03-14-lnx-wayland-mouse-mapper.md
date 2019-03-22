@@ -6,7 +6,7 @@ tags: [Arch, Linux, Wayland, 아치 리눅스, 마우스 키 매핑, xbindkeys]
 toc: true
 toc_sticky: true
 date: 2019-03-14 00:00:00
-lastmod: 2019-03-14 00:00:00
+lastmod: 2019-03-23 00:00:00
 sitemap:
   changefreq: daily
 ---
