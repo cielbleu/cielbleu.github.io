@@ -46,11 +46,11 @@ Forward와 Back 버튼이 대표적인데 이것 외에도 감도 조정, 제스
   
 다만 이러한 기능을 100% 사용하려면 Microsoft Windows를 사용해야 한다는 제약사항이 있습니다.  
 Microsoft Windows에서는 제조사에서 제공한 소프트웨어를 설치하면 마우스 버튼의 기능을 변경할 수 있도록 UI를 제공하고 있습니다.  
-![Logitech Option](/assets/images/logitech_option.png){:height="80%" width="80%"}  
+![Logitech Option](/assets/images/logitech_option.png)  
   
 하지만 아쉽게도 Linux용 소프트웨어를 제공하는 제조사는 아직까지 없습니다.  
 대신 몇몇 오픈소스로 제한적으로나마 이러한 기능을 제공하는 [소프트웨어](https://github.com/libratbag/piper)가 있습니다.  
-![Piper](/assets/images/piper_buttonpage.png){:height="80%" width="80%"}  
+![Piper](/assets/images/piper_buttonpage.png)  
 문제는 아직까지는 X Window System 기반으로 동작하고 있기에 Wayland에서는 정상적으로 동작하지 않는 상황입니다.  
   
 필자의 경우 X Window System을 디스플레이 서버로 사용할 때에는 마우스의 특정 버튼을 키보드의 다른 키로(예를 들어 ALT + F4) 매핑하기 위해 xautomation과 xbindkeys를 설치하여 사용했습니다.  
