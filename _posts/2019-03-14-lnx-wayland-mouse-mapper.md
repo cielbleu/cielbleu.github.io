@@ -26,9 +26,9 @@ sitemap:
 이외에도 현재는 중단된 상태지만 [Ubuntu](https://www.ubuntu,com)를 배포하고 있는 캐노니컬에서 Mir라는 디스플레이 서버 프로젝트를 진행하기도 했습니다. (근데 또 이걸 Fork 해서 개발하고 있는 사람들도 있다고 합니다.)  
   
 Wayland 프로젝트가 시작된 지는 꽤 오래되었지만, 아직도 대세는 X Window System입니다.  
-하지만 리눅스 양대 데스크탑 환경인 Gnome과 KDE에서 Wayland를 적극적으로 지원하고 있어 조만간 Wayland가 X Window System을 제치고 대세가 될 것 같습니다.  
+하지만 리눅스 양대 데스크탑 환경인 Gnome과 KDE에서 Wayland를 적극적으로 지원하고 있어 조만간 Wayland가 X Window System을 제치고 대세가 될 것으로 예상합니다.  
 
-본 필자도 이번에 새롭게 아치 리눅스를 설치하면서 디스플레이 서버를 Wayland로 바꿨는데, 몇 가지 소소한 문제점을 제외하면 실사용에 크게 문제가 되지는 않는 상황입니다.  
+필자도 이번에 새롭게 아치 리눅스를 설치하면서 디스플레이 서버로 Wayland를 사용하고 , 몇 가지 소소한 문제점을 제외하면 실사용에 크게 문제가 되지는 않는 상황입니다.  
   
 이번 포스트에서는 Wayland 기반에서 몇 가지 문제점 중 하나인 마우스 키 매핑에 대해 정리해 보았습니다.  
   
@@ -48,10 +48,10 @@ Forward와 Back 버튼이 대표적인데 이것 외에도 감도 조정, 제스
 Microsoft Windows에서는 제조사에서 제공한 소프트웨어를 설치하면 마우스 버튼의 기능을 변경할 수 있도록 UI를 제공하고 있습니다.  
 ![Logitech Option](/assets/images/logitech_option.png)  
   
-하지만 아쉽게도 Linux용 소프트웨어를 제공하는 제조사는 아직까지 없습니다.  
+하지만 아쉽게도 Linux용 소프트웨어를 제공하는 제조사는 아직 없습니다.  
 대신 몇몇 오픈소스로 제한적으로나마 이러한 기능을 제공하는 [소프트웨어](https://github.com/libratbag/piper)가 있습니다.  
 ![Piper](/assets/images/piper_buttonpage.png)  
-문제는 아직까지는 X Window System 기반으로 동작하고 있기에 Wayland에서는 정상적으로 동작하지 않는 상황입니다.  
+문제는 아직 X Window System 기반으로 동작하고 있기에 Wayland에서는 정상적으로 동작하지 않는다는 것입니다.  
   
 필자의 경우 X Window System을 디스플레이 서버로 사용할 때에는 마우스의 특정 버튼을 키보드의 다른 키로(예를 들어 ALT + F4) 매핑하기 위해 xautomation과 xbindkeys를 설치하여 사용했습니다.  
 하지만 xautomation과 xbindkeys 역시 Wayland에서 제대로 동작하지 않는다는 것이 문제입니다.  
