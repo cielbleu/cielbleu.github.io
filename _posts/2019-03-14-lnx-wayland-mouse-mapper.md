@@ -49,7 +49,7 @@ Microsoft Windows에서는 제조사에서 제공한 소프트웨어를 설치�
 ![Logitech Option](/assets/images/logitech_option.png)  
   
 하지만 아쉽게도 Linux용 소프트웨어를 제공하는 제조사는 아직 없습니다.  
-대신 몇몇 오픈소스로 제한적으로나마 이러한 기능을 제공하는 [소프트웨어](https://github.com/libratbag/piper)가 있습니다.  
+대신 오픈소스 소프트웨어 중 [Piper](https://github.com/libratbag/piper)가 제한적으로나마 이러한 기능을 제공하고 있습니다.  
 ![Piper](/assets/images/piper_buttonpage.png)  
 문제는 아직 X Window System 기반으로 동작하고 있기에 Wayland에서는 정상적으로 동작하지 않는다는 것입니다.  
   
