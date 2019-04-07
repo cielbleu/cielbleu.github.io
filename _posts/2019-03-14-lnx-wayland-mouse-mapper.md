@@ -103,10 +103,49 @@ BTN_EXTRA=(KEY_LEFTMETA KEY_PAGEUP)
 BTN_SIDE=(KEY_LEFTMETA KEY_PAGEDOWN)
 ```
 이 부분을 자신이 사용하고자 하는 목적대로 수정해야 합니다.  
-필자는 Logitech G500s 게이밍 마우스를 사용하고 있는데 EXTRA 버튼을 누르면 활성화된 창을 닫도록 (ALT + F4) 키를 누른 것처럼 사용하기 위해 아래와 같이 설정하였습니다.  
+필자는 Logitech G500s 게이밍 마우스를 사용하고 있는데 FORWARD 버튼을 누르면 활성화된 창을 닫도록 (ALT + F4) 키를 누른 것처럼 사용하기 위해 아래와 같이 설정하였습니다.  
 ```vim
 # COMMANDS MAP
-BTN_EXTRA=(KEY_LEFTALT KEY_F4)
+BTN_FORWARD=(KEY_LEFTALT KEY_F4)
+```
+  
+이 부분은 각자 사용하는 마우스에 따라 다르기 때문에 자신의 마우스에 맞도록 설정해야 합니다.  
+사용하는 마우스가 지원하는 버튼이 어떤 것이 있는지 모른다면 `evemu-describe` 명령어로 확인할 수 있습니다.  
+필자가 사용하는 마우스는 아래와 같이 총 8개의 버튼을 지원하고 있습니다.  
+```bash
+[계정@localhost ~]$ > sudo evemu-describe
+[sudo] password for 계정: 
+Available devices:
+/dev/input/event0:	Power Button
+/dev/input/event1:	Power Button
+/dev/input/event2:	PC Speaker
+/dev/input/event3:	Logitech G500s Laser Gaming Mouse
+/dev/input/event4:	Logitech G500s Laser Gaming Mouse Keyboard
+/dev/input/event5:	Logitech G500s Laser Gaming Mouse Consumer Control
+/dev/input/event6:	HID 046a:0023
+/dev/input/event7:	HID 046a:0023
+/dev/input/event8:	Video Bus
+/dev/input/event9:	HDA Intel PCH Front Mic
+/dev/input/event10:	HDA Intel PCH Rear Mic
+/dev/input/event11:	HDA Intel PCH Line
+/dev/input/event12:	HDA Intel PCH Line Out
+/dev/input/event13:	HDA Intel PCH Front Headphone
+Select the device event number [0-13]: 3
+.
+.
+.
+#   Event type 1 (EV_KEY)
+#     Event code 272 (BTN_LEFT)
+#     Event code 273 (BTN_RIGHT)
+#     Event code 274 (BTN_MIDDLE)
+#     Event code 275 (BTN_SIDE)
+#     Event code 276 (BTN_EXTRA)
+#     Event code 277 (BTN_FORWARD)
+#     Event code 278 (BTN_BACK)
+#     Event code 279 (BTN_TASK)
+.
+.
+.
 ```
   
 설정을 완료했지만, 테스트를 해 본 결과 위에서 문제점으로 기술했다시피 실제 키보드에서 (ALT + F4) 키를 누른 것처럼 동작하지 않는 문제점이 있었습니다.  
@@ -133,7 +172,7 @@ function pressCommand(){
 `sudo libinput list-devices`로 조회했을 때 필자의 키보드 하드웨어는 `/dev/input/event4`였는데 이를 스크립트에 직접 지정했습니다.  
 ```vim
 function pressCommand(){
-    device=/dev/input/event4; button=$2; movement=$3
+    device=event4; button=$2; movement=$3
     var=$button[@]
     command=${!var}
 
