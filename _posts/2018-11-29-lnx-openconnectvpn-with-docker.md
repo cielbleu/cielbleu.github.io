@@ -6,7 +6,7 @@ tags: [Arch, Linux, Docker, VPN, OpenConnect, 리눅스, 도커]
 toc: true
 toc_sticky: true
 date: 2018-11-29 00:00:00
-lastmod: 2018-12-19 00:00:00
+lastmod: 2019-04-10 00:00:00
 sitemap:
   changefreq: daily
 ---
@@ -54,10 +54,15 @@ docker-compose.yml 파일에 다음과 같이 추가합니다.
 ```
 
 ```yml
+version: '2'
+
+services:
   ocserv:
     container_name: ocserv
     image: vimagick/ocserv
     restart: always
+    networks:
+     - UDN_Service
     ports:
      - 443(외부에 공개할 포트):443/tcp
      - 443:443/udp
@@ -71,6 +76,47 @@ docker-compose.yml 파일에 다음과 같이 추가합니다.
      - VPN_PASSWORD=PassW@rd (vpn 클라이언트 로그인 비밀번호, 인증서의 비밀번호로도 사용됨, 추가 생성 가능)
     cap_add:
      - NET_ADMIN
+
+networks:
+  UDN_Database:
+    external:
+      name: UDN_Database
+  UDN_Service:
+    external:
+      name: UDN_Service
+```
+
+**networks:**  
+docker-compose가 생성하는 기본 네트워크가 아닌 별도의 네트워크를 사용하겠다는 의미입니다.  
+이 항목을 설정하지 않으면 docker-compose가 생성하는 기본 네트워크를 사용하게 되는데, docker-compose.yml 파일이 있는 `디렉토리명_default`와 같은 이름으로 생성됩니다.  
+docker-compose.yml에 지정된 모든 Docker 컨테이너는 별도 설정이 없을 경우 기본적으로 docker-compose가 생성한 기본 네트워크에 연결됩니다.  
+```bash
+[계정@localhost ~/docker]$ > docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+3640e59420fe        UDN_Database        bridge              local
+e38fb7c9fe3c        UDN_Service         bridge              local
+4398feaef58e        bridge              bridge              local
+f780747b759b        docker_default      bridge              local
+4756bb8ee162        host                host                local
+0bedac919e79        none                null                local
+```
+
+**networks:**에서 지정한 네트워크는 docker-compose.yml 파일에 설정되어 있어야 합니다.  
+Database용 네트워크(UDN_Database)와 서비스용 네트워크(UDN_Service)로 각각 설정하였고, OCServ 컨테이너는 UDN_Service 네트워크를 사용하도록 지정하였습니다.  
+```yml
+networks:
+  UDN_Database:
+    external:
+      name: UDN_Database
+  UDN_Service:
+    external:
+      name: UDN_Service
+```
+
+Docker 네트워크를 생성하는 방법은 아래를 참고하세요.  
+```bash
+[계정@localhost ~/docker]$ > docker network create --driver bridge --subnet 10.10.10.0/24 --gateway 10.10.10.1 UDN_Database
+[계정@localhost ~/docker]$ > docker network create --driver bridge --subnet 10.10.20.0/24 --gateway 10.10.20.1 UDN_Service
 ```
 
 **ports:**  

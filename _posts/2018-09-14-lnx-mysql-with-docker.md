@@ -6,7 +6,7 @@ tags: [Arch, Linux, Docker, Mysql, 리눅스, 도커]
 toc: true
 toc_sticky: true
 date: 2018-09-14 00:00:00
-lastmod: 2018-12-19 00:00:00
+lastmod: 2019-04-10 00:00:00
 sitemap:
   changefreq: daily
 ---
@@ -53,12 +53,17 @@ docker-compose.yml 파일에 다음과 같이 추가합니다.
 ```
 
 ```yml
+version: '2'
+
+services:
   mysql:
     container_name: mysql
     image: mysql:latest
     restart: always
+    networks:
+     - UDN_Database
     ports:
-     - 33060(외부에 공개할 포트):3306
+     - 30960(외부에 공개할 포트):3306
     volumes:
      - /home/계정/docker/mysql/data:/var/lib/mysql
      - /home/계정/docker/mysql/config:/etc/mysql/conf.d
@@ -67,13 +72,54 @@ docker-compose.yml 파일에 다음과 같이 추가합니다.
      - MYSQL_USER=tomcat (Mysql 사용자 계정)
      - MYSQL_PASSWORD=PassW@rd!! (Mysql 사용자 계정 비밀번호)
     user: 1000:100
+
+networks:
+  UDN_Database:
+    external:
+      name: UDN_Database
+  UDN_Service:
+    external:
+      name: UDN_Service
+```
+
+**networks:**  
+docker-compose가 생성하는 기본 네트워크가 아닌 별도의 네트워크를 사용하겠다는 의미입니다.  
+이 항목을 설정하지 않으면 docker-compose가 생성하는 기본 네트워크를 사용하게 되는데, docker-compose.yml 파일이 있는 `디렉토리명_default`와 같은 이름으로 생성됩니다.  
+docker-compose.yml에 지정된 모든 Docker 컨테이너는 별도 설정이 없을 경우 기본적으로 docker-compose가 생성한 기본 네트워크에 연결됩니다.  
+```bash
+[계정@localhost ~/docker]$ > docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+3640e59420fe        UDN_Database        bridge              local
+e38fb7c9fe3c        UDN_Service         bridge              local
+4398feaef58e        bridge              bridge              local
+f780747b759b        docker_default      bridge              local
+4756bb8ee162        host                host                local
+0bedac919e79        none                null                local
+```
+
+**networks:**에서 지정한 네트워크는 docker-compose.yml 파일에 설정되어 있어야 합니다.  
+Database용 네트워크(UDN_Database)와 서비스용 네트워크(UDN_Service)로 각각 설정하였고, Mysql과 phpMyAdmin 컨테이너는 UDN_Database 네트워크를 사용하도록 지정하였습니다.  
+```yml
+networks:
+  UDN_Database:
+    external:
+      name: UDN_Database
+  UDN_Service:
+    external:
+      name: UDN_Service
+```
+
+Docker 네트워크를 생성하는 방법은 아래를 참고하세요.  
+```bash
+[계정@localhost ~/docker]$ > docker network create --driver bridge --subnet 10.10.10.0/24 --gateway 10.10.10.1 UDN_Database
+[계정@localhost ~/docker]$ > docker network create --driver bridge --subnet 10.10.20.0/24 --gateway 10.10.20.1 UDN_Service
 ```
 
 **ports:**  
 Host PC의 네트워크 포트를 Docker 컨테이너(Mysql)의 특정 포트와 연결하기 위한 항목입니다.  
 
-3306번 포트는 Mysql이 사용하는 네트워크 포트인데, 이 포트를 Host PC의 33060번 포트와 연결한다는 의미입니다.  
-외부 또는 다른 Docker 컨테이너에서 Mysql에 접속하기 위해서는 3306번 포트가 아닌 33060번 포트로 접속하여야 합니다.  
+3306번 포트는 Mysql이 사용하는 네트워크 포트인데, 이 포트를 Host PC의 30960번 포트와 연결한다는 의미입니다.  
+외부 또는 다른 Docker 컨테이너에서 Mysql에 접속하기 위해서는 3306번 포트가 아닌 30960번 포트로 접속하여야 합니다.  
 
 **volumes:**   
 Docker 컨테이너(Mysql)와 Host PC의 디렉토리 연결을 위한 항목입니다.  
@@ -100,6 +146,7 @@ Docker 컨테이너(Mysql)의 환경변수를 설정하기 위한 항목입니�
 `MYSQL_ROOT_PASSWORD`는 Mysql의 관리자 비밀번호를 지정하는 변수입니다.    
 `MYSQL_USER`과 `MYSQL_PASSWORD`는 Mysql의 사용자 계정 및 비밀번호를 지정하는 변수입니다.  
 일부 특수문자(예를 들면 $)는 제대로 인식을 하지 못하므로 주의하세요.  
+이 변수를 사용하지 않고 Mysql에 root로 로그인 후 사용자를 생성해도 됩니다.  
 
 **user: 1000:100**  
 `user: 1000:100`은 Docker 컨테이너(MySQL)를 실행할 때 uid와 gid를 지정하는 설정입니다.  
