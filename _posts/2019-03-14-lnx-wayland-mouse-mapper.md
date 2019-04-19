@@ -2,7 +2,7 @@
 title: "Wayland 마우스 버튼 매핑"
 description: "Wayland 디스플레이 환경에서 특정 마우스 버튼을 다른 키로 매핑하는 방법"
 category: Linux
-tags: [Arch, Linux, Wayland, 아치 리눅스, 마우스 키 매핑, xbindkeys]
+tags: [Arch, Linux, Wayland, 리눅스, 마우스 키 매핑, xbindkeys]
 toc: true
 toc_sticky: true
 date: 2019-03-14 00:00:00
