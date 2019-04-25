@@ -170,11 +170,12 @@ Description = Public IP check for knowledgebox.online
 
 [Service]
 Type = simple
-ExecStart = /usr/local/bin/curl -s 'http://ddns.dnszi.com/set.html?user=DNSZi 계정&auth=인증키&domain=개인도메인&record='
+ExecStart = /usr/bin/curl -s 'http://ddns.dnszi.com/set.html?user=DNSZi 계정&auth=인증키&domain=개인도메인&record='
 ```
 **[Service]**  
 .service 파일에서 가장 중요한 부분입니다.  
-`ExecStart = /usr/local/bin/curl -s` 는 curl을 진행 상태나 에러 정보를 보여주지 않는 Slient 모드로 실행하라는 의미입니다.  
+`ExecStart = /usr/bin/curl -s` 는 curl을 진행 상태나 에러 정보를 보여주지 않는 Slient 모드로 실행하라는 의미입니다.  
+curl이 어떤 경로에 설치되어 있는지 확인하려면 `whereis curl`로 확인할 수 있습니다.  
 `'http://ddns.dnszi.com/set.html?user=DNSZi 계정&auth=인증키&domain=개인도메인&record='` 이 부분이  DNSZi 사이트에 공인 IP 주소를 업데이트 하는 부분입니다.  
   
 DNSZi 계정과 인증키, 개인도메인 부분을 자신의 상황에 맞게 변경하세요.  
