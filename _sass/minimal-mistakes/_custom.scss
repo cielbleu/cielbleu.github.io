@@ -28,13 +28,13 @@
     .tag-box a {
         padding: 4px 6px;
         margin: 2px;
-        background-color: #e6e6e6;
+        background-color: #808080;
         -webkit-border-radius: 4px;
         -moz-border-radius: 4px;
         border-radius: 4px;
         text-decoration: none;
         &:hover {
-            background-color: #d8d8d8;
+            background-color: #292929;
         }
     }
     .tag-box a span {
@@ -60,7 +60,7 @@
 .archive-date {
     font-size: 0.8em;
     border-radius: 4px;
-    background-color: #e6e6e6;
+    background-color: #808080;
     display: inline-block;
     min-width: 2em;
     margin-right: 0.5em;
