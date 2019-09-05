@@ -76,7 +76,8 @@
   &--disabled {
     pointer-events: none;
     cursor: not-allowed;
-    filter: alpha(opacity=65);
+    /* filter: alpha(opacity=65); */ /* Original */
+    filter: alpha(opacity=38);
     box-shadow: none;
     opacity: 0.65;
   }
