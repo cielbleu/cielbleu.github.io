@@ -22,12 +22,12 @@ ls /sys/firmware/efi
 
 lsblk
 
-cfdisk /dev/sda
-cfdisk /dev/sdb
-cfdisk /dev/sdc
-cfdisk /dev/sdd
+gfdisk /dev/sda
+gfdisk /dev/sdb
+gfdisk /dev/sdc
+gfdisk /dev/sdd
 
-mkfs.fat -F32 /dev/sda1
+mkfs.vfat -F32 /dev/sda1
 mkfs.ext4 /dev/sda2
 mkfs.ext4 /dev/sda3
 mkfs.ext4 /dev/sdb1
@@ -158,14 +158,15 @@ Created EFI boot entry "Linux Boot Manager".
 [계정] vim /boot/loader/loader.conf
 ```
 ```vim
-#timeout 3
-#console-mode keep
+timeout 3
+#HiDPI일 경우 1로 변경
+console-mode 1
 default ArchBox
 editor 1
 ```
 
 ```bash
-[계정] pacman -S intel-ucode
+[계정] pacman -S intel-ucode 또는 amd-ucode
 resolving dependencies...
 looking for conflicting package...
 
@@ -230,6 +231,7 @@ VGA 드라이버
 00:02.0 VGA compatible controller: Intel Corporation Xeon E3-1200 v2/3rd Gen Core processor Graphics Controller (rev 09)
 
 [계정] sudo pacman -S mesa xf86-video-intel vulkan-intel
+[계정] sudo pacman -S mesa xf86-video-amdgpu vulkan-radeon libva-mesa-driver mesa-vdpau
 ```
 
 reboot
@@ -270,7 +272,8 @@ Windows에서 Center New Windows 활성화
 Keyboard & Mouse > Additional Layout Options에서 한글/한자 설정(스크린샷)
 
 Gnome shell integration 애드온 설치(Firefox)
-pamac에서 chrome-gnome-shell 검색 후 설치
+pamac에서 chrome-gn
+ome-shell 검색 후 설치
 
 https://extensions.gnome.org 접속 후 애드온 설치
 User Themes
@@ -320,4 +323,3 @@ git clone https://github.com/mathportillo/wayland-mouse-mapper
 sudo cp mousemapper.sh /usr/bin/mousemapper
 sudo cp mousemapper.service /usr/lib/systemd/system
 sudo systemctl enable mousemapper.service
-
