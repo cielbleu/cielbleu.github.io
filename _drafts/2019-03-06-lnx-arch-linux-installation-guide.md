@@ -323,3 +323,5 @@ git clone https://github.com/mathportillo/wayland-mouse-mapper
 sudo cp mousemapper.sh /usr/bin/mousemapper
 sudo cp mousemapper.service /usr/lib/systemd/system
 sudo systemctl enable mousemapper.service
+  
+chrome HiDPI > .config/chrome-flags.conf > --force-device-scale-factor=1.25
